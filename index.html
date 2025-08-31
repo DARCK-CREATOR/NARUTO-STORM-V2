@@ -1,1 +1,144 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Naruto Storm</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+        min-height: 100vh;      
+        background: linear-gradient(135deg, #1d437c, red, gold);
+      
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        font-family: Arial, Verdana, sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        max-width: 800px;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        background-image: url('https://files.catbox.moe/34qmms.jpeg');
+        background-position: center;
+        background-size: cover;
+        border-radius: 10px;
+        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.9);
+      }
+
+      h1 {
+        color: gold;
+        text-shadow: 
+          3px 3px 3px rgba(0,0,0,0.1),
+          3px 3px 5px rgba(0,0,0,0.8);
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 4px solid #444;
+      }
+
+      p {
+        color: white;
+        font-size: 14px;
+        text-align: left;
+        font-family: Georgia, serif;
+        text-shadow: 1px 1px 2px #85e8;
+        line-height: 1.5;
+      }
+
+      h2 {
+        color: blue;
+        margin-top: 20px;
+      }
+
+      h3 {
+        margin-top: 2em;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        animation: go 1.5s linear infinite;
+        transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+      }
+
+      h3:hover {
+        transform: scale(1.2);
+        text-shadow: 0 0 15px yellow;
+      }
+
+      .para-go {
+        margin-top: 30px;
+        text-align: center;
+        color: #43a53e;
+        font-size: 16px;
+      }
+
+      @keyframes go {
+        50% { color: blue; }
+        80% { color: red; }
+        100% { color: white; }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          width: 90%;
+          padding: 14px;
+        }
+
+        p {
+          font-size: 14px;
+          text-align: justify;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        h3 {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container" class="container">
+      <h1>NARUTO STORM</h1>
+      <audio src="https://raw.githubusercontent.com/DARCK-CREATOR/NARUTO-STORM-V2/main/naruto_strong_and_strike.mp3" style="display: none;" id="play"></audio>
+      <p>
+        Cette plateforme interactive vous permet d'explorer les capacités des plus grands shinobis de l'univers Naruto.<br><br>
+        Que vous soyez un fan de longue date ou un nouveau venu dans le monde des ninjas,<br><br>
+        cet outil vous offre un accès détaillé aux techniques, aux forces et aux particularités de chaque personnage.<br><br>
+        Plongez dans les données stratégiques et découvrez le potentiel de combat de vos héros préférés.
+      </p>
+
+      <h1>CONSIGNES</h1>
+
+      <h2>Navigation</h2>
+      <p>- Sélectionnez un personnage dans la liste à gauche pour afficher ses détails.</p>
+      <p>- Chaque personnage possède une fiche descriptive avec sa force et ses techniques.</p>
+
+      <h2>Interaction</h2>
+      <p>- Cliquez sur un personnage pour voir ses compétences s'afficher dans la section de droite.</p>
+      <p>- Les techniques sont présentées avec leur nom et leur niveau de dommage.</p>
+
+      <p class="para-go">Cliquez sur Start pour commencer !</p>
+      <h3 onclick="start()">START !</h3>
+    </div>
+
+    <script>
+      document.addEventListener("click", function () {
+        let audio =document.getElementById("play")
+        audio.play();
+      })
+      function start() {
+        window.location.href = "personnage.html";
+      }
+    </script>
+  </body>
+  </html>
