@@ -304,7 +304,7 @@
       <h1 class="dialog-h1">Fin du combat</h1>
       <b><p class="dialog-p" id="fin">Hashirama remporte la victoire</p></b>
       <button onclick="passer()">Changer de perso</button>
-     <br> <button onclick="passer( window.location.href='salle.html')">Recommencer</button>
+     <br> <button onclick="recommencer()">Recommencer</button>
       
     </dialog>
     <script>
@@ -622,6 +622,9 @@ return;
 function passer() {
   window.location.href = "personnage.html";
 }
+      function recommencer() {
+        window.location.href=`salle.html`
+         }
   
     </script>
     </body>
