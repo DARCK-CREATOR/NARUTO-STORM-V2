@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>choix du personnage !</title>
+    <style>
+  .container{
+      background-image: url('https://files.catbox.moe/34qmms.jpeg');
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+      font-family: 'Segoe UI', Sans-Serif;
+      background-attachment: fixed;
+      color: white;
+    }
+    .h1 {
+      font-size: 2.5rem;
+      color: #b0f049;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      margin-bottom: 10px;
+    }
+    .p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    .perso{
+      padding: 20px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      margin-bottom: 2em;
+     overflow-x: scroll;
+      overflow-y: hidden;
+      animation: perso 2s ease-in-out;
+      white-space: nowrap;
+    }
+    .profil {
+      padding: 20px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 2em;
+      background: rgba(0,0,0,0.0);
+      animation: profil 3s ease-in-out;
+    }
+    .profil h2 {
+      font-size: 1.2rem;
+      color: white;
+      text-shadow: 0px 0px 18px white,
+      0 0 20px gold;
+      font-family: Georgia, serif;
+    }
+
+    .strong {
+      text-align:  right;
+    }
+    .force{
+      text-align: left;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 20px;
+      width: 100%;
+      font-family: 'Segoe UI', Tahoma,Geneva, Verdana, Sans-Serif;
+      border: 2px solid white;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.3);
+      color: white;
+      opacity: 2;
+      animation: btn 2s ease-in-out;
+      overflow: hidden;
+    }
+    button:hover{
+      transition: 1s;
+      transform: translateX(10px);
+      border-left: 3px solid white;
+    }
+    button:active{
+      background: white;
+      color: black;
+      opacity: 6;
+}
+    li {
+      font-family: Monospace, serif;
+      color: white;
+      text-shadow: 3px 3px 4px rgba(0,0,0,0.8);
+    }
+    .fin {
+      font-family: Monospace, 'Segoe UI', serif;
+      width: 50%;
+      border-radius: 20px;
+      background: red;
+      border: 1px solid red;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+      margin-bottom: 4em;
+      padding: 10px;
+    }
+    .fin:hover{
+      background: #204520;
+      transform: scale(0.8);
+      transition: 2s;
+      border-left: none;
+    }
+    .fin:active: {
+      background: white;
+    }
+    .personne {
+      border-bottom: 2px solid #084508;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      color: gold;
+    }
+
+    @keyframes btn{
+      from {
+      transform: translateY(80px);
+      opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    </style>
+  </head>
+  <body id="body" class="container">
+     <h1 class="h1">Choix du personnage </h1>
+       <p class="p">Sélectionnez votre personnage pour voir ses compétances</p>
+      <center>
+        <div class="perso">
+          
+          
+    <button onclick="afficherPerso('Hashirama')" >
+      Hashirama Senju</button>
+      
+    <button   onclick="afficherPerso('Hashirama_SenjuArtSenin')">
+     Hashirama Senju (Art Senin)</button>
+
+<button onclick="afficherPerso('Tobirama')">Tobirama Senju
+</button>
+
+<button onclick="afficherPerso('Tobirama_EdoTensei')">Tobirama Senju (Edo Tensei)
+</button>
+
+<button  onclick="afficherPerso('Hiruzen')">Hiruzen Sarutobi
+</button>
+
+<button  onclick="afficherPerso('Hiruzen_5Elements')">Hiruzen Sarutobi (5 Éléments)
+</button>
+<button onclick="afficherPerso('Hiruzen_ShinigamiSeal')">Hiruzen Sarutobi (Shinigami Seal)
+</button>
+
+
+<button onclick="afficherPerso('Minato')">Minato Namikaze</button>
+<button  onclick="afficherPerso('Minato_HiraishinRasengan')">Minato Namikaze (Hiraishin Rasengan)</button>
+
+<button onclick="afficherPerso('Minato_Kyuubi')">Minato Namikaze (Mode Kyuubi)</button>
+
+<button  onclick="afficherPerso('Tsunade')">Tsunade</button>
+<button onclick="afficherPerso('Tsunade_Byakugo')">Tsunade (Byakugō)</button>
+
+<button  onclick="afficherPerso('Naruto')">Naruto Uzumaki</button>
+<button  onclick="afficherPerso('Naruto_KCM')">Naruto Uzumaki (KCM)</button>
+<button  onclick="afficherPerso('Naruto_Ermite')">Naruto Uzumaki (Mode Ermite)</button>
+<button  onclick="afficherPerso('Naruto_Baryon')">Naruto Uzumaki (Baryon Mode)</button>
+<button  onclick="afficherPerso('Madara_Uchiwa')">Madara Uchiwa</button>
+<button  onclick="afficherPerso('Madara_Rikudo')">Madara Uchiwa (Rikudo)</button>
+
+
+<button onclick="afficherPerso('Sasuke')">Sasuke Uchiha</button>
+<button onclick="afficherPerso('Sasuke_Taka')">Sasuke Uchiha (Taka)</button>
+<button onclick="afficherPerso('Sasuke_Rinnegan')">Sasuke Uchiha (Rinnegan)</button>
+
+<button onclick="afficherPerso('Kakashi')">Kakashi Hatake</button>
+<button onclick="afficherPerso('Kakashi_DMS')">Kakashi Hatake (DMS)</button>
+
+<button onclick="afficherPerso('Sakura')">Sakura Haruno</button>
+<button onclick="afficherPerso('Sakura_Byakugo')">Sakura Haruno (Byakugō Déchaîné)</button>
+
+<button onclick="afficherPerso('RockLee')">Rock Lee</button>
+<button onclick="afficherPerso('RockLee_6Porte')">Rock Lee (6ème Porte - Paon du Midi)</button>
+
+<button onclick="afficherPerso('Neji')">Neji Hyuga</button>
+<button onclick="afficherPerso('Hinata')">Hinata Hyuga</button>
+
+<button onclick="afficherPerso('Shikamaru')">Shikamaru Nara</button>
+
+<button onclick="afficherPerso('Kurenai')">Kurenai Yuhi</button>
+
+<button onclick="afficherPerso('Asuma')">Asuma Sarutobi</button>
+
+<button onclick="afficherPerso('MaitoGai')">Maito Gai</button>
+<button onclick="afficherPerso('MaitoGai_8Porte')">Maito Gai (8ème Porte - Nuit de la Mort)</button>
+
+<button onclick="afficherPerso('Gaara')">Gaara</button>
+<button onclick="afficherPerso('Gaara_SableFuneraire')">Gaara (Sable Funéraire)</button>
+<button onclick="afficherPerso('Temari')">Temari</button>
+<button onclick="afficherPerso('Kankuro')">Kankuro</button>
+
+<button onclick="afficherPerso('Ay')">Ay (Raikage)</button>
+
+<button onclick="afficherPerso('Mei')">Mei Terumi</button>
+
+<button  onclick="afficherPerso('Onoki')">Onoki</button>
+
+<button onclick="afficherPerso('Pain_Tendo')">Pain (Tendo)</button>
+<button onclick="afficherPerso('Konan')">Konan</button>
+<button onclick="afficherPerso('Nagato')">Nagato</button>
+<button onclick="afficherPerso('Deidara')">Deidara</button>
+<button onclick="afficherPerso('Obito_Uchiwa')">Obito Uchiwa</button>
+<button onclick="afficherPerso('Obito_Rikudo')">Obito Uchiwa (Rikudo)</button>
+<button onclick="afficherPerso('Deidara_C0')">Deidara (C0)</button>
+<button onclick="afficherPerso('Kakuzu')">Kakuzu</button>
+<button onclick="afficherPerso('Hidan')">Hidan</button>
+<button onclick="afficherPerso('Sasori')">Sasori</button>
+<button onclick="afficherPerso('Itachi')">Itachi Uchiha</button>
+<button  onclick="afficherPerso('Itachi_AmaterasuSusanoo')">Itachi Uchiha (Amaterasu + Susano'o)</button>
+<button onclick="afficherPerso('Kisame')">Kisame Hoshigaki</button>
+<button onclick="afficherPerso('Kisame_Samehada')">Kisame Hoshigaki (Fusion avec Samehada)</button>
+<button onclick="afficherPerso('Orochimaru')">Orochimaru</button>
+<button onclick="afficherPerso('Orochimaru_SageBlanc')">Orochimaru (Mode Sage Blanc)</button>
+
+<button onclick="afficherPerso('Kaguya')">Kaguya Otsutsuki</button>
+<button onclick="afficherPerso('Kaguya_ExpansionDivine')">Kaguya Otsutsuki (Os Cendré + Expansion Divine)</button>
+<button onclick="afficherPerso('Hamura')">Hamura Otsutsuki</button>
+<button onclick="afficherPerso('Hamura_Tenseigan')">Hamura Otsutsuki (Tenseigan)</button>
+<button onclick="afficherPerso('Hagoromo')">Hagoromo Otsutsuki</button>
+<button onclick="afficherPerso('Hagoromo_SixPaths')">Hagoromo Otsutsuki (Six Paths Senjutsu)</button>
+<button onclick="afficherPerso('Indra')">Indra Otsutsuki</button>
+<button onclick="afficherPerso('Asura')">Asura Otsutsuki</button>
+<button onclick="afficherPerso('Momoshiki')">Momoshiki Otsutsuki</button>
+<button onclick="afficherPerso('Isshiki')">Isshiki Otsutsuki</button>
+<button onclick="afficherPerso('Jigen')">Jigen</button>
+
+<button onclick="afficherPerso('Boruto')">Boruto Uzumaki</button>
+<button onclick="afficherPerso('Boruto_Karma')">Boruto Uzumaki (Karma)</button>
+<button onclick="afficherPerso('Kawaki')">Kawaki</button>
+<button onclick="afficherPerso('Sarada')">Sarada Uchiha</button>
+<button onclick="afficherPerso('Mitsuki')">Mitsuki</button>
+<button onclick="afficherPerso('KillerBee')">Killer Bee</button>
+      </div>
+      </center>
+      <center>
+      <div class="profil" id="detail">
+      </div>
+    </center>
+    <button class="fin" onclick="passer()">SUIVANT</button>
+    <audio src="https://raw.githubusercontent.com/DARCK-CREATOR/NARUTO-STORM-V2/main/toumei_datta_sekai_motohiro_hata_naruto_shippuden_opening_7_mp3_52227.mp3" id="audio"></audio>
+    <script>
+      
+      
+const personnages = {
+  "Hashirama": {
+    "force": 65,
+    "pouvoir": [
+      { "name": "Coup de Poing Sismique", "dommage": 12 },
+      { "name": "Rupture du Sol", "dommage": 10 },
+      { "name": "Projection d'Éclats de Bois", "dommage": 8 },
+      { "name": "Rafale de Shurikens", "dommage": 7 }
+    ],
+    "attaqueChakra": [
+      { "name": "Clonage en bois", "dommage": 15 },
+      { "name": "Dragon de bois", "dommage": 20 },
+      { "name": "Forêt naissante", "dommage": 35 },
+      { "name": "Barrière de Bois Quadruple", "dommage": 25 }
+    ],
+    "attaqueUltime": [
+      { "name": "Statue de Bouddha aux Mille Mains", "dommage": 60 },
+      { "name": "Art du Ninja : Naissance d'un Monde d'Arbres", "dommage": 55 },
+      { "name": "Golem de Bois Géant", "dommage": 50 },
+      { "name": "Scellé du Sommet", "dommage": 45 }
+    ],
+    "image" : "https://files.catbox.moe/bou3dp.jpeg"
+  },
+"Hashirama_SenjuArtSenin": {
+    "force": 85,
+    "pouvoir": [
+      { "name": "Frappe de Chakra Renforcée", "dommage": 15 },
+      { "name": "Déplacement Rapide", "dommage": 5 },
+      { "name": "Lancer de Kunai Perforant", "dommage": 10 },
+      { "name": "Saut Pression", "dommage": 8 }
+    ],
+    "attaqueChakra": [
+      { "name": "Dragon de bois", "dommage": 25 },
+      { "name": "Mur de bois", "dommage": 32 },
+      { "name": "Croissance luxuriante", "dommage": 35 },
+      { "name": "Fleurs Empoisonnées", "dommage": 28 }
+    ],
+    "attaqueUltime": [
+      { "name": "Mode Sage : Éveil", "dommage": 65 },
+      { "name": "Art du Bois : Neuf Dragons Foudroyants", "dommage": 70 },
+      { "name": "Statue de Bouddha Parfaite", "dommage": 75 },
+      { "name": "Scellé de la Mort Vivante", "dommage": 60 }
+    ],
+     "image" : "https://files.catbox.moe/jem46g.jpeg"
+  },
+  "Tobirama": {
+    "force": 79,
+    "pouvoir": [
+      { "name": "Lame de l'Éclair", "dommage": 18 },
+      { "name": "Frappe Éclair", "dommage": 14 },
+      { "name": "Kunai Foudroyant", "dommage": 12 },
+      { "name": "Esquive Suprême", "dommage": 5 }
+    ],
+    "attaqueChakra": [
+      { "name": "Dragon Aqueux", "dommage": 28 },
+      { "name": "Téléportation Instantanée", "dommage": 18 },
+      { "name": "Multiclônage", "dommage": 12 },
+      { "name": "Style Eau : Vague Géante", "dommage": 30 }
+    ],
+    "attaqueUltime": [
+      { "name": "Démon Corrosif : Vague Spectrale", "dommage": 50 },
+      { "name": "Scellé de l'Âme", "dommage": 45 },
+      { "name": "Barrière à 4 Coins de l'Espace", "dommage": 40 },
+      { "name": "Art Interdit : Réincarnation des Âmes", "dommage": 99 }
+    ],
+     "image" : "https://files.catbox.moe/au0ndi.jpeg"
+  },
+  "Tobirama_EdoTensei": {
+    "force": 70,
+    "pouvoir": [
+      { "name": "Combo de Kunai", "dommage": 10 },
+      { "name": "Projection Explosive", "dommage": 12 },
+      { "name": "Pression Aérienne", "dommage": 8 },
+      { "name": "Rétablissement Instantané", "dommage": 0 }
+    ],
+    "attaqueChakra": [
+      { "name": "Invocation : Réincarnation des Âmes", "dommage": 5 },
+      { "name": "Barrage de Papiers Explosifs", "dommage": 20 },
+      { "name": "Style Eau : Mur d'Eau", "dommage": 15 },
+      { "name": "Explosion Tourbillonnante", "dommage": 22 }
+    ],
+    "attaqueUltime": [
+      { "name": "Armée de l'Edo Tensei", "dommage": 55 },
+      { "name": "Explosion Suprême des Papiers", "dommage": 48 },
+      { "name": "Tempête Aqueuse Dévastatrice", "dommage": 42 },
+      { "name": "Scellé de l'Âme Ultime", "dommage": 60 }
+    ],
+     "image" : "https://files.catbox.moe/1xhsse.jpeg"
+  },
+  "Madara_Uchiwa": {
+    "force": 80,
+    "pouvoir": [
+      {"name": "Poing d'acier", "dommage": 20},
+      {"name": "Coup de pied tourbillonnant", "dommage": 22},
+      {"name": "Projection de shuriken géant", "dommage": 18},
+      {"name": "Esquive téléportation", "dommage": 15}
+    ],
+    "attaqueChakra": [
+      {"name": "Susano'o", "dommage": 40},
+      {"name": "Grande Explosion de Feu", "dommage": 35},
+      {"name": "Météore", "dommage": 45},
+      {"name": "Contrôle du Kyubi", "dommage": 50}
+    ],
+    "attaqueUltime": [
+      {"name": "Susano'o Parfait", "dommage": 60},
+      {"name": "Planète Dévastatrice", "dommage": 65},
+      {"name": "Tempête de shuriken", "dommage": 55},
+      {"name": "Illusion: Monde Infini", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/h2lkh9.jpeg"
+  },
+  "Madara_Rikudo": {
+    "force": 95,
+    "pouvoir": [
+      {"name": "Poing de la vérité", "dommage": 25},
+      {"name": "Coup de pied céleste", "dommage": 28},
+      {"name": "Projection de vérité", "dommage": 22},
+      {"name": "Esquive de la recherche", "dommage": 20}
+    ],
+    "attaqueChakra": [
+      {"name": "Orbe des Désirs", "dommage": 50},
+      {"name": "Bâton de la recherche", "dommage": 45},
+      {"name": "Libération de la poussière", "dommage": 60},
+      {"name": "Contrôle gravitationnel", "dommage": 55}
+    ],
+    "attaqueUltime": [
+      {"name": "Naissance des Arbres", "dommage": 70},
+      {"name": "Lune: Tsukuyomi Infini", "dommage": 75},
+      {"name": "Renaissance", "dommage": 0},
+      {"name": "Sceau des Six Chemins", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/4wm1in.jpeg"
+  },
+  "Hiruzen": {
+    "force": 77,
+    "pouvoir": [
+      { "name": "Frappe du Bâton", "dommage": 16 },
+      { "name": "Shuriken Multi-Directionnel", "dommage": 14 },
+      { "name": "Roulade Esquive", "dommage": 5 },
+      { "name": "Lancer de Fumigène", "dommage": 3 }
+    ],
+    "attaqueChakra": [
+      { "name": "Multiclônage de Shurikens", "dommage": 20 },
+      { "name": "Style Terre : Mur de Terre", "dommage": 18 },
+      { "name": "Style Feu : Dragon de Feu", "dommage": 21 },
+      { "name": "Style Foudre : Éclair Sismique", "dommage": 19 }
+    ],
+    "attaqueUltime": [
+      { "name": "Invocation : Enma Roi des Singes", "dommage": 40 },
+      { "name": "Assaut des 5 Éléments", "dommage": 50 },
+      { "name": "Bouclier Adamantin", "dommage": 35 },
+      { "name": "Explosion de Chakra du Professeur", "dommage": 45 }
+    ],
+     "image" : "https://files.catbox.moe/tczeuf.jpeg"
+  },
+  "Hiruzen_5Elements": {
+    "force": 83,
+    "pouvoir": [
+      { "name": "Bâton Étendu", "dommage": 20 },
+      { "name": "Combo Physique", "dommage": 18 },
+      { "name": "Kunai de Feu", "dommage": 15 },
+      { "name": "Déplacement Élémentaire", "dommage": 8 }
+    ],
+    "attaqueChakra": [
+      { "name": "Combo Feu/Vent", "dommage": 30 },
+      { "name": "Enma : Extension du Bâton", "dommage": 24 },
+      { "name": "Style Foudre : Éclair", "dommage": 22 },
+      { "name": "Style Eau : Lance Aqueuse", "dommage": 25 }
+    ],
+    "attaqueUltime": [
+      { "name": "Cataclysme des 5 Éléments", "dommage": 60 },
+      { "name": "Enma : Mode Bâton de Diamant", "dommage": 52 },
+      { "name": "Tempête de Feu et de Foudre", "dommage": 48 },
+      { "name": "Barrière des 5 Sceaux", "dommage": 40 }
+    ],
+     "image" : "https://files.catbox.moe/hld8xp.jpeg"
+  },
+  "Hiruzen_ShinigamiSeal": {
+    "force": 85,
+    "pouvoir": [
+      { "name": "Dernier Souffle", "dommage": 25 },
+      { "name": "Frappe Désespérée", "dommage": 22 },
+      { "name": "Lancer de Sceau", "dommage": 15 },
+      { "name": "Rugissement Final", "dommage": 10 }
+    ],
+    "attaqueChakra": [
+      { "name": "Scellé du Dieu de la Mort", "dommage": 99 },
+      { "name": "Enma : Prison Adamantine", "dommage": 25 },
+      { "name": "Barrage d'Ombre de Shurikens", "dommage": 28 },
+      { "name": "Explosion de Chakra Suprême", "dommage": 35 }
+    ],
+    "attaqueUltime": [
+      { "name": "Sacrifice Ultime : Shinigami", "dommage": 99 },
+      { "name": "Prison Adamantine Ultime", "dommage": 45 },
+      { "name": "Ombre des Mille Shurikens", "dommage": 40 },
+      { "name": "Adieu Héroïque", "dommage": 70 }
+    ],
+     "image" : "https://files.catbox.moe/h71r79.jpeg"
+  },
+  "Minato": {
+    "force": 84,
+    "pouvoir": [
+      { "name": "Kunai Téléporté", "dommage": 18 },
+      { "name": "Frappe Éclair", "dommage": 16 },
+      { "name": "Esquive Instantanée", "dommage": 10 },
+      { "name": "Lancer de Dague", "dommage": 12 }
+    ],
+    "attaqueChakra": [
+      { "name": "Téléportation Instantanée", "dommage": 20 },
+      { "name": "Rasengan", "dommage": 25 },
+      { "name": "Scellé de Contrat", "dommage": 15 },
+      { "name": "Barrière de Téléportation", "dommage": 22 }
+    ],
+    "attaqueUltime": [
+      { "name": "Rasengan Tourbillonnant", "dommage": 45 },
+      { "name": "Technique Interdite : Réincarnation", "dommage": 50 },
+      { "name": "Scellé du Démon Renard", "dommage": 99 },
+      { "name": "Éclair Jaune de Konoha", "dommage": 40 }
+    ],
+     "image" : "https://files.catbox.moe/cszoti.jpeg"
+  },
+  "Minato_HiraishinRasengan": {
+    "force": 88,
+    "pouvoir": [
+      { "name": "Combo Téléportation", "dommage": 22 },
+      { "name": "Marque Foudroyante", "dommage": 18 },
+      { "name": "Double Frappe", "dommage": 20 },
+      { "name": "Vitesse Suprême", "dommage": 15 }
+    ],
+    "attaqueChakra": [
+      { "name": "Rasengan Téléporté", "dommage": 38 },
+      { "name": "Foudre Guidante", "dommage": 32 },
+      { "name": "Barrière Espace-Temps", "dommage": 20 },
+      { "name": "Rasengan Dimensionnel", "dommage": 35 }
+    ],
+    "attaqueUltime": [
+      { "name": "Rasengan Géant Téléporté", "dommage": 55 },
+      { "name": "Tempête de Foudre Guidante", "dommage": 50 },
+      { "name": "Barrière Ultime de l'Espace", "dommage": 45 },
+      { "name": "Technique Suprême de l'Éclair", "dommage": 60 }
+    ],
+     "image" : "https://files.catbox.moe/9jaid7.jpeg"
+  },
+  "Minato_Kyuubi": {
+    "force": 94,
+    "pouvoir": [
+      { "name": "Griffe de Chakra", "dommage": 30 },
+      { "name": "Morsure du Renard", "dommage": 28 },
+      { "name": "Queue de Chakra", "dommage": 25 },
+      { "name": "Rugissement Assourdissant", "dommage": 20 }
+    ],
+    "attaqueChakra": [
+      { "name": "Bombe Démoniaque", "dommage": 45 },
+      { "name": "Rasengan Géant", "dommage": 42 },
+      { "name": "Manteau de Chakra du Démon", "dommage": 35 },
+      { "name": "Onde de Chakra", "dommage": 38 }
+    ],
+    "attaqueUltime": [
+      { "name": "Bombe à Billes Démoniaque", "dommage": 70 },
+      { "name": "Mode Chakra de Kyuubi Complet", "dommage": 65 },
+      { "name": "Rasengan de L'Éclair du Démon", "dommage": 68 },
+      { "name": "Scellé de Transfert du Démon", "dommage": 75 }
+    ],
+     "image" : "https://files.catbox.moe/8ti5og.jpeg"
+  },
+  "Tsunade": {
+    "force": 82,
+    "pouvoir": [
+      { "name": "Coup de Poing Brise-Montagne", "dommage": 32 },
+      { "name": "Saut Pression", "dommage": 20 },
+      { "name": "Lancer de Objet Lourd", "dommage": 25 },
+      { "name": "Rugissement Intimidant", "dommage": 10 }
+    ],
+    "attaqueChakra": [
+      { "name": "Poing de Force Suprême", "dommage": 35 },
+      { "name": "Invocation : Katsuyu", "dommage": 25 },
+      { "name": "Ninjutsu Médical", "dommage": 0 },
+      { "name": "Régénération Cellulaire", "dommage": 0 }
+    ],
+    "attaqueUltime": [
+      { "name": "Sceau de la Force Centenaire", "dommage": 55 },
+      { "name": "Katsuyu Géante : Pluie Acide", "dommage": 45 },
+      { "name": "Soin Universel", "dommage": 0 },
+      { "name": "Frappe Sismique", "dommage": 50 }
+    ],
+     "image" : "https://files.catbox.moe/gbrsj3.jpeg"
+  },
+  "Tsunade_Byakugo": {
+    "force": 89,
+    "pouvoir": [
+      { "name": "Poing de la Renaissance", "dommage": 38 },
+      { "name": "Vague de Chakra", "dommage": 30 },
+      { "name": "Rétablissement Instantané", "dommage": 0 },
+      { "name": "Impact Sismique", "dommage": 35 }
+    ],
+    "attaqueChakra": [
+      { "name": "Libération du Sceau Secret", "dommage": 40 },
+      { "name": "Régénération", "dommage": 0 },
+      { "name": "Frappe de la Renaissance", "dommage": 45 },
+      { "name": "Katsuyu : Division Cellulaire", "dommage": 30 }
+    ],
+    "attaqueUltime": [
+      { "name": "Dernière Portée de la Renaissance", "dommage": 65 },
+      { "name": "Katsuyu : Fusion de Régénération", "dommage": 0 },
+      { "name": "Explosion du Sceau de Diamant", "dommage": 60 },
+      { "name": "Souffle de Vie", "dommage": 55 }
+    ],
+     "image" : "https://files.catbox.moe/oci37m.jpeg"
+  },
+  "Naruto": {
+    "force": 75,
+    "pouvoir": [
+      { "name": "Coup de Pied Tourbillonnant", "dommage": 18 },
+      { "name": "Lancer de Kunai", "dommage": 12 },
+      { "name": "Multiclônage Assaut", "dommage": 15 },
+      { "name": "Frappe Surprise", "dommage": 16 }
+    ],
+    "attaqueChakra": [
+      { "name": "Rasengan", "dommage": 24 },
+      { "name": "Shuriken Tourbillonnant", "dommage": 32 },
+      { "name": "Multiclônage", "dommage": 10 },
+      { "name": "Orbe Tourbillonnant", "dommage": 28 }
+    ],
+    "attaqueUltime": [
+      { "name": "Rasengan Géant", "dommage": 40 },
+      { "name": "Assaut des Milles Clones", "dommage": 35 },
+      { "name": "Technique Cachée : Harem Inverse", "dommage": 5 },
+      { "name": "Volonté du Feu", "dommage": 30 }
+    ],
+     "image" : "https://files.catbox.moe/wbttsk.jpeg"
+  },
+  "Obito_Uchiwa": {
+    "force": 75,
+    "pouvoir": [
+      {"name": "Poing fantôme", "dommage": 18},
+      {"name": "Coup de pied intouchable", "dommage": 20},
+      {"name": "Projection de chaîne", "dommage": 15},
+      {"name": "Esquive de phase", "dommage": 12}
+    ],
+    "attaqueChakra": [
+      {"name": "Kamui: Téléportation", "dommage": 0},
+      {"name": "Kamui: Absorption", "dommage": 35},
+      {"name": "Grande Explosion de Feu", "dommage": 32},
+      {"name": "Invocation: Statue Démoniaque", "dommage": 40}
+    ],
+    "attaqueUltime": [
+      {"name": "Contrôle des Bijū", "dommage": 55},
+      {"name": "Météorite: Chaîne de destruction", "dommage": 50},
+      {"name": "Kamui: Dimension parallèle", "dommage": 45},
+      {"name": "Sceau maudit: Mort", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/4e2owi.png"
+  },
+  "Obito_Rikudo": {
+    "force": 90,
+    "pouvoir": [
+      {"name": "Poing de la douleur", "dommage": 24},
+      {"name": "Coup de pied de la vérité", "dommage": 26},
+      {"name": "Projection de vérité", "dommage": 22},
+      {"name": "Esquive de la recherche", "dommage": 20}
+    ],
+    "attaqueChakra": [
+      {"name": "Bâton de la recherche", "dommage": 42},
+      {"name": "Orbe des Désirs", "dommage": 48},
+      {"name": "Libération de la foudre", "dommage": 45},
+      {"name": "Contrôle gravitationnel", "dommage": 50}
+    ],
+    "attaqueUltime": [
+      {"name": "Naissance des Arbres", "dommage": 65},
+      {"name": "Tsukuyomi Infini", "dommage": 70},
+      {"name": "Renaissance: Jūbi", "dommage": 0},
+      {"name": "Sceau des Six Chemins", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/unqf04.jpeg"
+  },
+  "Naruto_KCM": {
+    "force": 92,
+    "pouvoir": [
+      { "name": "Frappe de Chakra du Renard", "dommage": 32 },
+      { "name": "Queue de Chakra", "dommage": 28 },
+      { "name": "Griffe de Kyuubi", "dommage": 30 },
+      { "name": "Rugissement de Kyuubi", "dommage": 25 }
+    ],
+    "attaqueChakra": [
+      { "name": "Rasengan Bombe Démoniaque", "dommage": 42 },
+      { "name": "Lariat", "dommage": 35 },
+      { "name": "Bras de Chakra du Démon", "dommage": 30 },
+      { "name": "Onde de Chakra", "dommage": 38 }
+    ],
+    "attaqueUltime": [
+      { "name": "Bombe à Billes Démoniaque", "dommage": 65 },
+      { "name": "Mode Chakra de Kyuubi", "dommage": 55 },
+      { "name": "Rasengan Shuriken", "dommage": 60 },
+      { "name": "Lariat Ultime", "dommage": 58 }
+    ],
+     "image" : "https://files.catbox.moe/1j2sh5.jpeg"
+  },
+  "Naruto_Ermite": {
+    "force": 85,
+    "pouvoir": [
+      { "name": "Frappe de l'Ermite", "dommage": 30 },
+      { "name": "Saut de Crapaud", "dommage": 22 },
+      { "name": "Sens de l'Ermite", "dommage": 5 },
+      { "name": "Bâton de l'Ermite", "dommage": 25 }
+    ],
+    "attaqueChakra": [
+      { "name": "Grand Rasengan", "dommage": 32 },
+      { "name": "Art Hermétique : Rasengan Massif", "dommage": 36 },
+      { "name": "Combat à Main Nue du Crapaud", "dommage": 28 },
+      { "name": "Invocation : Gamabunta", "dommage": 34 }
+    ],
+    "attaqueUltime": [
+      { "name": "Rasengan Shuriken de l'Ermite", "dommage": 58 },
+      { "name": "Mode Ermite Parfait", "dommage": 50 },
+      { "name": "Technique des Crapauds : Huile et Feu", "dommage": 45 },
+      { "name": "Dernier Mot de Maître Jiraya", "dommage": 52 }
+    ],
+     "image" : "https://files.catbox.moe/x2qeg3.jpeg"
+  },
+  "Naruto_Baryon": {
+    "force": 98,
+    "pouvoir": [
+      { "name": "Frappe Baryon", "dommage": 50 },
+      { "name": "Vitesse Baryon", "dommage": 45 },
+      { "name": "Drain de Chakra", "dommage": 45 },
+      { "name": "Poing de l'Étoile Filante", "dommage": 48 }
+    ],
+    "attaqueChakra": [
+      { "name": "Rasengan Baryon", "dommage": 52 },
+      { "name": "Aura Baryon", "dommage": 48 },
+      { "name": "Onde de Chakra Baryon", "dommage": 50 },
+      { "name": "Explosion Baryon", "dommage": 55 }
+    ],
+    "attaqueUltime": [
+      { "name": "Mode Baryon Ultime", "dommage": 70 },
+      { "name": "Rasengan de l'Aube", "dommage": 75 },
+      { "name": "Dernier Souffle Baryon", "dommage": 80 },
+      { "name": "Adieu Père", "dommage": 85 }
+    ],
+     "image" : "https://files.catbox.moe/ylopa2.jpeg"
+  },
+  "Sasuke": {
+    "force": 76,
+    "pouvoir": [
+      { "name": "Combo d'Épée", "dommage": 20 },
+      { "name": "Lancer de Shuriken", "dommage": 15 },
+      { "name": "Prédiction du Sharingan", "dommage": 5 },
+      { "name": "Esquive Acrobatique", "dommage": 8 }
+    ],
+    "attaqueChakra": [
+      { "name": "Chidori", "dommage": 26 },
+      { "name": "Boule de Feu", "dommage": 22 },
+      { "name": "Sharingan : Illusion", "dommage": 18 },
+      { "name": "Lame Éclair", "dommage": 24 }
+    ],
+    "attaqueUltime": [
+      { "name": "Chidori Stream", "dommage": 40 },
+      { "name": "Lion Combo", "dommage": 35 },
+      { "name": "Sharingan : Perception", "dommage": 25 },
+      { "name": "Serpent : Remplaçant", "dommage": 30 }
+    ],
+     "image" : "https://files.catbox.moe/ml37r0.jpeg"
+  },
+  "Sasuke_Taka": {
+    "force": 84,
+    "pouvoir": [
+      { "name": "Assaut d'Épée", "dommage": 28 },
+      { "name": "Vitesse du Chidori", "dommage": 25 },
+      { "name": "Lancer de Kunaï Explosif", "dommage": 20 },
+      { "name": "Rétablissement", "dommage": 10 }
+    ],
+    "attaqueChakra": [
+      { "name": "Kirin", "dommage": 37 },
+      { "name": "Amaterasu", "dommage": 30 },
+      { "name": "Kagutsuchi", "dommage": 32 },
+      { "name": "Susano'o Squelettique", "dommage": 35 }
+    ],
+    "attaqueUltime": [
+      { "name": "Susano'o Complet", "dommage": 55 },
+      { "name": "Kirin Ultime", "dommage": 60 },
+      { "name": "Amaterasu : Flamme Infernal", "dommage": 58 },
+      { "name": "Chidori Noir", "dommage": 50 }
+    ],
+     "image" : "https://files.catbox.moe/gx46g0.jpeg"
+  },
+  "Sasuke_Rinnegan": {
+    "force": 95,
+    "pouvoir": [
+      { "name": "Téléportation Spatiale", "dommage": 25 },
+      { "name": "Frappe du Rinnegan", "dommage": 30 },
+      { "name": "Absorption de Chakra", "dommage": 35 },
+      { "name": "Échange de Places", "dommage": 22 }
+    ],
+    "attaqueChakra": [
+      { "name": "Amenotejikara", "dommage": 20 },
+      { "name": "Planète Démoniaque", "dommage": 42 },
+      { "name": "Flèche d'Indra", "dommage": 48 },
+      { "name": "Susano'o Parfait", "dommage": 50 }
+    ],
+    "attaqueUltime": [
+      { "name": "Susano'o Complet de l'Indra", "dommage": 70 },
+      { "name": "Flèche Finale d'Indra", "dommage": 75 },
+      { "name": "Espace-Temps : Portail Dimensionnel", "dommage": 65 },
+      { "name": "Rinnegan : Pouvoir des Six Chemins", "dommage": 68 }
+    ],
+     "image" : "https://files.catbox.moe/ynaom4.jpeg"
+  },
+  "Kakashi": {
+    "force": 78,
+    "pouvoir": [
+      { "name": "Combo de Taijutsu", "dommage": 20 },
+      { "name": "Lancer de Kunaï Précis", "dommage": 16 },
+      { "name": "Esquive Rapide", "dommage": 10 },
+      { "name": "Tactique de Copiage", "dommage": 15 }
+    ],
+    "attaqueChakra": [
+      { "name": "Lame Éclair", "dommage": 28 },
+      { "name": "Chien de Foudre", "dommage": 25 },
+      { "name": "Style Terre : Mur", "dommage": 18 },
+      { "name": "Sharingan : Copiage", "dommage": 22 }
+    ],
+    "attaqueUltime": [
+      { "name": "Chidori", "dommage": 40 },
+      { "name": "Double Lame Éclair", "dommage": 45 },
+      { "name": "Stratégie du Loup Solitaire", "dommage": 35 },
+      { "name": "Mille Jutsus", "dommage": 50 }
+    ],
+     "image" : "https://files.catbox.moe/57u57d.jpeg"
+  },
+  "Kakashi_DMS": {
+    "force": 96,
+    "pouvoir": [
+      { "name": "Frappe de Kamui", "dommage": 35 },
+      { "name": "Téléportation de Kamui", "dommage": 30 },
+      { "name": "Déplacement Phasé", "dommage": 25 },
+      { "name": "Double Sharingan", "dommage": 40 }
+    ],
+    "attaqueChakra": [
+      { "name": "Shuriken de Kamui", "dommage": 40 },
+      { "name": "Susano'o Parfait", "dommage": 45 },
+      { "name": "Lame Éclair de Kamui", "dommage": 42 },
+      { "name": "Kamui : Dimension", "dommage": 38 }
+    ],
+    "attaqueUltime": [
+      { "name": "Susano'o Complet de Kamui", "dommage": 70 },
+      { "name": "Double Kamui Shuriken", "dommage": 65 },
+      { "name": "Éclair Final de Kamui", "dommage": 75 },
+      { "name": "Dernier Kamui", "dommage": 80 }
+    ],
+     "image" : "https://files.catbox.moe/ejpame.jpeg"
+  },
+  "Sakura": {
+    "force": 70,
+    "pouvoir": [
+      { "name": "Coup de Poing Brise-Rocher", "dommage": 25 },
+      { "name": "Lancer de Scalpel", "dommage": 18 },
+      { "name": "Résistance aux Illusions", "dommage": 5 },
+      { "name": "Esquive Médicale", "dommage": 10 }
+    ],
+    "attaqueChakra": [
+      { "name": "Force Améliorée par le Chakra", "dommage": 22 },
+      { "name": "Ninjutsu Médical", "dommage": 0 },
+      { "name": "Régénération", "dommage": 0 },
+      { "name": "Analyse Médicale", "dommage": 8 }
+    ],
+    "attaqueUltime": [
+      { "name": "Soin de Zone", "dommage": 0 },
+      { "name": "Frappe Sismique", "dommage": 40 },
+      { "name": "Antidote Universel", "dommage": 0 },
+      { "name": "Volonté de la Fleur de Cerisier", "dommage": 35 }
+    ],
+     "image" : "https://files.catbox.moe/lcv0dk.jpeg"
+  },
+  "Sakura_Byakugo": {
+    "force": 86,
+    "pouvoir": [
+      { "name": "Poing de la Renaissance", "dommage": 35 },
+      { "name": "Vague de Chakra", "dommage": 30 },
+      { "name": "Rétablissement Instantané", "dommage": 0 },
+      { "name": "Impact Sismique", "dommage": 38 }
+    ],
+    "attaqueChakra": [
+      { "name": "Frappe du Sceau Secret", "dommage": 38 },
+      { "name": "Création de la Renaissance", "dommage": 0 },
+      { "name": "Libération du Sceau Yin", "dommage": 40 },
+      { "name": "Katsuyu : Fusion", "dommage": 32 }
+    ],
+    "attaqueUltime": [
+      { "name": "Dernière Portée de la Renaissance", "dommage": 60 },
+      { "name": "Katsuyu : Régénération Massive", "dommage": 0 },
+      { "name": "Explosion du Sceau de Diamant", "dommage": 55 },
+      { "name": "Souffle de Vie", "dommage": 50 }
+    ],
+     "image" : "https://files.catbox.moe/70ky42.jpeg"
+  },
+  "RockLee": {
+    "force": 72,
+    "pouvoir": [
+      { "name": "Coup de Pied Tourbillonnant", "dommage": 22 },
+      { "name": "Poing Puissant", "dommage": 20 },
+      { "name": "Ouragan de Feuille", "dommage": 15 },
+      { "name": "Vitesse Supérieure", "dommage": 18 }
+    ],
+    "attaqueChakra": [
+      { "name": "Lotus Primaire", "dommage": 28 },
+      { "name": "Ouverture de la Première Porte", "dommage": 25 },
+      { "name": "Multiclônage", "dommage": 10 },
+      { "name": "Saut Dynamique", "dommage": 20 }
+    ],
+    "attaqueUltime": [
+      { "name": "Lotus Caché", "dommage": 45 },
+      { "name": "Ouverture des 5 Portes", "dommage": 40 },
+      { "name": "Jeunesse Explosive", "dommage": 35 },
+      { "name": "Dernier Soupir de la Jeunesse", "dommage": 50 }
+    ],
+     "image" : "https://files.catbox.moe/al6x3c.jpeg"
+  },
+  "RockLee_6Porte": {
+    "force": 82,
+    "pouvoir": [
+      { "name": "Coup de Pied du Matin", "dommage": 30 },
+      { "name": "Poing de l'Aurore", "dommage": 28 },
+      { "name": "Vitesse de la 6e Porte", "dommage": 35 },
+      { "name": "Ouragan de Feuille Ultime", "dommage": 25 }
+    ],
+    "attaqueChakra": [
+      { "name": "Lotus Caché", "dommage": 35 },
+      { "name": "Paon du Matin", "dommage": 38 },
+      { "name": "Mouvement à Haute Vitesse", "dommage": 25 },
+      { "name": "Onde de Chakra Verte", "dommage": 32 }
+    ],
+    "attaqueUltime": [
+      { "name": "Paon du Matin Ultime", "dommage": 60 },
+      { "name": "Ouverture de la 6e Porte", "dommage": 55 },
+      { "name": "Assaut Final de la Jeunesse", "dommage": 65 },
+      { "name": "Adieu Guy Sensei", "dommage": 70 }
+    ],
+     "image" : "https://files.catbox.moe/xq9udu.jpeg"
+  },
+  "Neji": {
+    "force": 74,
+    "pouvoir": [
+      { "name": "Frappe des 64 Mains", "dommage": 30 },
+      { "name": "Rotation", "dommage": 22 },
+      { "name": "Pression des Points de Chakra", "dommage": 25 },
+      { "name": "Défense Absolute", "dommage": 20 }
+    ],
+    "attaqueChakra": [
+      { "name": "Paumes des Huit Trigrammes", "dommage": 26 },
+      { "name": "Vision du Byakugan", "dommage": 5 },
+      { "name": "Mur de Chakra", "dommage": 18 },
+      { "name": "Explosion de Chakra", "dommage": 28 }
+    ],
+    "attaqueUltime": [
+      { "name": "Huit Trigrammes 64 Paumes", "dommage": 50 },
+      { "name": "Rotation Ultime", "dommage": 45 },
+      { "name": "Byakugan Perçant", "dommage": 40 },
+      { "name": "Dernière Rotation", "dommage": 55 }
+    ],
+     "image" : "https://files.catbox.moe/kcvl2n.jpeg"
+  },
+  "Hinata": {
+    "force": 68,
+    "pouvoir": [
+      { "name": "Pas Léger des Lions Jumeaux", "dommage": 24 },
+      { "name": "Frappe Rapide", "dommage": 20 },
+      { "name": "Défense Douce", "dommage": 18 },
+      { "name": "Esquive Gracieuse", "dommage": 15 }
+    ],
+    "attaqueChakra": [
+      { "name": "Huit Trigrammes Protecteurs", "dommage": 20 },
+      { "name": "Détection du Byakugan", "dommage": 3 },
+      { "name": "Paume de Chakra", "dommage": 22 },
+      { "name": "Mur de Chakra", "dommage": 16 }
+    ],
+    "attaqueUltime": [
+      { "name": "Huit Trigrammes 64 Paumes", "dommage": 45 },
+      { "name": "Protection Absolute", "dommage": 40 },
+      { "name": "Byakugan Perçant", "dommage": 35 },
+      { "name": "Amour de Konoha", "dommage": 50 }
+    ],
+     "image" : "https://files.catbox.moe/0xc9b0.jpeg"
+  },
+     
+  "Shikamaru": {
+    "force": 35,
+    "pouvoir": [
+      {"name": "Coup de poing", "dommage": 8},
+      {"name": "Coup de pied", "dommage": 9},
+      {"name": "Esquive", "dommage": 4},
+      {"name": "Projection de kunai", "dommage": 10}
+    ],
+    "attaqueChakra": [
+      {"name": "Ombre Imitation", "dommage": 0},
+      {"name": "Lien d'ombre", "dommage": 12},
+      {"name": "Projection d'ombre", "dommage": 15},
+      {"name": "Mur d'ombre", "dommage": 18}
+    ],
+    "attaqueUltime": [
+      {"name": "Piège d'ombre", "dommage": 25},
+      {"name": "Stratège", "dommage": 0},
+      {"name": "Attaque coordonnée", "dommage": 20},
+      {"name": "Ombre perçante", "dommage": 28}
+    ],
+     "image" : "https://files.catbox.moe/z3771w.jpeg"
+  },
+  "Kurenai": {
+    "force": 32,
+    "pouvoir": [
+      {"name": "Coup de poing", "dommage": 7},
+      {"name": "Coup de pied", "dommage": 8},
+      {"name": "Esquive", "dommage": 4},
+      {"name": "Projection de shuriken", "dommage": 9}
+    ],
+    "attaqueChakra": [
+      {"name": "Illusion: Arbre", "dommage": 10},
+      {"name": "Illusion: Fleur", "dommage": 12},
+      {"name": "Illusion: Liane", "dommage": 14},
+      {"name": "Illusion: Mirage", "dommage": 16}
+    ],
+    "attaqueUltime": [
+      {"name": "Monde illusoire", "dommage": 30},
+      {"name": "Piège mental", "dommage": 0},
+      {"name": "Illusion: Sceau", "dommage": 22},
+      {"name": "Illusion: Tempête", "dommage": 26}
+    ],
+     "image" : "https://files.catbox.moe/an0ym0.jpeg"
+  },
+  "Asuma": {
+    "force": 45,
+    "pouvoir": [
+      {"name": "Poing lourd", "dommage": 12},
+      {"name": "Coup de pied tournoyant", "dommage": 14},
+      {"name": "Projection de kunai", "dommage": 10},
+      {"name": "Esquive rapide", "dommage": 6}
+    ],
+    "attaqueChakra": [
+      {"name": "Lame de vent", "dommage": 18},
+      {"name": "Couteaux volants", "dommage": 15},
+      {"name": "Vague de chakra", "dommage": 20},
+      {"name": "Barrière de fumée", "dommage": 8}
+    ],
+    "attaqueUltime": [
+      {"name": "Lame de chakra", "dommage": 35},
+      {"name": "Tempête de cendres", "dommage": 28},
+      {"name": "Explosion de chakra", "dommage": 32},
+      {"name": "Attaque ultime: Vent", "dommage": 40}
+    ],
+     "image" : "https://files.catbox.moe/qcutop.jpeg"
+  },
+  "MaitoGai": {
+    "force": 50,
+    "pouvoir": [
+      {"name": "Poing dynamique", "dommage": 15},
+      {"name": "Coup de pied tournoyant", "dommage": 18},
+      {"name": "Projection de nunchaku", "dommage": 12},
+      {"name": "Esquive éclair", "dommage": 8}
+    ],
+    "attaqueChakra": [
+      {"name": "Lotus primaire", "dommage": 25},
+      {"name": "Lotus du printemps", "dommage": 30},
+      {"name": "Lotus de l'été", "dommage": 35},
+      {"name": "Lotus de l'automne", "dommage": 40}
+    ],
+    "attaqueUltime": [
+      {"name": "Lotus de l'hiver", "dommage": 45},
+      {"name": "Dragon du matin", "dommage": 50},
+      {"name": "Tigre du soir", "dommage": 48},
+      {"name": "Jeunesse explosive", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/q4eqas.jpeg"
+  },
+  "MaitoGai_8Porte": {
+    "force": 85,
+    "pouvoir": [
+      {"name": "Poing supersonique", "dommage": 25},
+      {"name": "Coup de pied tornade", "dommage": 28},
+      {"name": "Projection éclair", "dommage": 20},
+      {"name": "Esquive instantanée", "dommage": 15}
+    ],
+    "attaqueChakra": [
+      {"name": "Porte de la douleur", "dommage": 35},
+      {"name": "Porte de la limite", "dommage": 40},
+      {"name": "Porte de la mort", "dommage": 45},
+      {"name": "Porte de la vie", "dommage": 50}
+    ],
+    "attaqueUltime": [
+      {"name": "Dragon du soir", "dommage": 70},
+      {"name": "Tigre de minuit", "dommage": 65},
+      {"name": "Étoile du matin", "dommage": 75},
+      {"name": "Soleil couchant", "dommage": 80}
+    ],
+     "image" : "https://files.catbox.moe/wv829x.jpeg"
+  },
+  "Gaara": {
+    "force": 40,
+    "pouvoir": [
+      {"name": "Poing de sable", "dommage": 12},
+      {"name": "Bouclier de sable", "dommage": 8},
+      {"name": "Projection de sable", "dommage": 10},
+      {"name": "Esquive de sable", "dommage": 6}
+    ],
+    "attaqueChakra": [
+      {"name": "Cercueil de sable", "dommage": 20},
+      {"name": "Tempête de sable", "dommage": 25},
+      {"name": "Mur de sable", "dommage": 15},
+      {"name": "Lance de sable", "dommage": 18}
+    ],
+    "attaqueUltime": [
+      {"name": "Sable ultime", "dommage": 40},
+      {"name": "Boule de sable", "dommage": 35},
+      {"name": "Désert hostile", "dommage": 30},
+      {"name": "Protection absolue", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/a6giif.jpeg"
+  },
+  "Gaara_SableFuneraire": {
+    "force": 55,
+    "pouvoir": [
+      {"name": "Poing funéraire", "dommage": 18},
+      {"name": "Bouclier funéraire", "dommage": 12},
+      {"name": "Projection funéraire", "dommage": 15},
+      {"name": "Esquive funéraire", "dommage": 10}
+    ],
+    "attaqueChakra": [
+      {"name": "Cercueil funéraire", "dommage": 30},
+      {"name": "Tempête funéraire", "dommage": 35},
+      {"name": "Mur funéraire", "dommage": 25},
+      {"name": "Lance funéraire", "dommage": 28}
+    ],
+    "attaqueUltime": [
+      {"name": "Sable funéraire ultime", "dommage": 50},
+      {"name": "Boule funéraire", "dommage": 45},
+      {"name": "Désert funéraire", "dommage": 40},
+      {"name": "Protection funéraire", "dommage": 0}
+    ],
+    "image" : "https://files.catbox.moe/rx04g8.jpeg"
+  },
+  "Temari": {
+    "force": 35,
+    "pouvoir": [
+      {"name": "Coup d'éventail", "dommage": 10},
+      {"name": "Rafale de vent", "dommage": 12},
+      {"name": "Projection de kunai", "dommage": 8},
+      {"name": "Esquive rapide", "dommage": 5}
+    ],
+    "attaqueChakra": [
+      {"name": "Tempête de vent", "dommage": 20},
+      {"name": "Tornade", "dommage": 25},
+      {"name": "Lame de vent", "dommage": 18},
+      {"name": "Mur de vent", "dommage": 15}
+    ],
+    "attaqueUltime": [
+      {"name": "Ouragan", "dommage": 35},
+      {"name": "Typhon", "dommage": 40},
+      {"name": "Vent divin", "dommage": 30},
+      {"name": "Sceau du vent", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/zxjxhj.jpeg"
+  },
+  "Kankuro": {
+    "force": 38,
+    "pouvoir": [
+      {"name": "Poing de marionnette", "dommage": 11},
+      {"name": "Coup de pied mécanique", "dommage": 13},
+      {"name": "Projection d'aiguille", "dommage": 9},
+      {"name": "Esquive contrôlée", "dommage": 6}
+    ],
+    "attaqueChakra": [
+      {"name": "Marionnette: Karasu", "dommage": 20},
+      {"name": "Marionnette: Kuroari", "dommage": 22},
+      {"name": "Marionnette: Sanshouo", "dommage": 24},
+      {"name": "Marionnette: Crow", "dommage": 18}
+    ],
+    "attaqueUltime": [
+      {"name": "Assaut de marionnettes", "dommage": 35},
+      {"name": "Piège mortel", "dommage": 30},
+      {"name": "Contrôle ultime", "dommage": 0},
+      {"name": "Explosion de marionnette", "dommage": 40}
+    ],
+     "image" : "https://files.catbox.moe/av4ck9.jpeg"
+  },
+  "Ay": {
+    "force": 60,
+    "pouvoir": [
+      {"name": "Poing foudroyant", "dommage": 18},
+      {"name": "Coup de pied éclair", "dommage": 20},
+      {"name": "Projection rapide", "dommage": 15},
+      {"name": "Esquive électrique", "dommage": 12}
+    ],
+    "attaqueChakra": [
+      {"name": "Armure foudroyante", "dommage": 25},
+      {"name": "Frappe éclair", "dommage": 28},
+      {"name": "Vitesse suprême", "dommage": 22},
+      {"name": "Onde de choc", "dommage": 30}
+    ],
+    "attaqueUltime": [
+      {"name": "Liger Bomb", "dommage": 45},
+      {"name": "Hell Stab", "dommage": 40},
+      {"name": "Guillotine Drop", "dommage": 42},
+      {"name": "Lightning Release: Chakra Mode", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/w39dq1.jpeg"
+  },
+  "Mei": {
+    "force": 42,
+    "pouvoir": [
+      {"name": "Poing de lave", "dommage": 14},
+      {"name": "Coup de pied acide", "dommage": 16},
+      {"name": "Projection corrosive", "dommage": 12},
+      {"name": "Esquive liquide", "dommage": 8}
+    ],
+    "attaqueChakra": [
+      {"name": "Style Lave: Doughnut", "dommage": 25},
+      {"name": "Style Eau: Dragon", "dommage": 28},
+      {"name": "Style Brume: Acide", "dommage": 30},
+      {"name": "Style Boue: Marais", "dommage": 22}
+    ],
+    "attaqueUltime": [
+      {"name": "Eruption volcanique", "dommage": 40},
+      {"name": "Tsunami acide", "dommage": 45},
+      {"name": "Brume mortelle", "dommage": 35},
+      {"name": "Fusion élémentaire", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/y77f9e.jpeg"
+  },
+  "Onoki": {
+    "force": 38,
+    "pouvoir": [
+      {"name": "Poing de pierre", "dommage": 12},
+      {"name": "Coup de pied lourd", "dommage": 14},
+      {"name": "Projection de roche", "dommage": 10},
+      {"name": "Esquive flottante", "dommage": 6}
+    ],
+    "attaqueChakra": [
+      {"name": "Style Pierre: Projectile", "dommage": 20},
+      {"name": "Style Poussière: Désintégration", "dommage": 35},
+      {"name": "Style Poussière: Poids", "dommage": 25},
+      {"name": "Style Poussière: Légèreté", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Jinton: Cube", "dommage": 50},
+      {"name": "Jinton: Cône", "dommage": 55},
+      {"name": "Jinton: Sphère", "dommage": 60},
+      {"name": "Sceau de la terre", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/b6eo84.jpeg"
+  },
+  "Pain_Tendo": {
+    "force": 70,
+    "pouvoir": [
+      {"name": "Poing divin", "dommage": 20},
+      {"name": "Coup de pied céleste", "dommage": 22},
+      {"name": "Projection noire", "dommage": 18},
+      {"name": "Esquive divine", "dommage": 15}
+    ],
+    "attaqueChakra": [
+      {"name": "Almighty Push", "dommage": 40},
+      {"name": "Universal Pull", "dommage": 35},
+      {"name": "Shinra Tensei", "dommage": 45},
+      {"name": "Bansho Tenin", "dommage": 38}
+    ],
+    "attaqueUltime": [
+      {"name": "Chibaku Tensei", "dommage": 60},
+      {"name": "Rinnegan: Vision", "dommage": 0},
+      {"name": "Contrôle gravitationnel", "dommage": 50},
+      {"name": "Sceau des six chemins", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/jw9kq3.jpeg"
+  },
+  "Konan": {
+    "force": 40,
+    "pouvoir": [
+      {"name": "Poing de papier", "dommage": 12},
+      {"name": "Coup de papier", "dommage": 14},
+      {"name": "Projection de papier", "dommage": 10},
+      {"name": "Esquive de papier", "dommage": 8}
+    ],
+    "attaqueChakra": [
+      {"name": "Oiseau de papier", "dommage": 20},
+      {"name": "Fleur de papier", "dommage": 22},
+      {"name": "Lame de papier", "dommage": 18},
+      {"name": "Bouclier de papier", "dommage": 15}
+    ],
+    "attaqueUltime": [
+      {"name": "Mer de papier", "dommage": 35},
+      {"name": "Explosion de papier", "dommage": 40},
+      {"name": "Tempête de papier", "dommage": 30},
+      {"name": "Anges de papier", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/qio1b6.jpeg"
+  },
+  "Nagato": {
+    "force": 75,
+    "pouvoir": [
+      {"name": "Poing rinnegan", "dommage": 22},
+      {"name": "Coup de pied divin", "dommage": 24},
+      {"name": "Projection céleste", "dommage": 20},
+      {"name": "Esquive suprême", "dommage": 18}
+    ],
+    "attaqueChakra": [
+      {"name": "Rinnegan: Absorption", "dommage": 0},
+      {"name": "Rinnegan: Invocation", "dommage": 35},
+      {"name": "Rinnegan: Contrôle", "dommage": 40},
+      {"name": "Rinnegan: Vision", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Chibaku Tensei", "dommage": 65},
+      {"name": "Rinne Tensei", "dommage": 0},
+      {"name": "Contrôle des six chemins", "dommage": 55},
+      {"name": "Sceau divin", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/f35ixc.jpeg"
+  },
+  "Deidara": {
+    "force": 45,
+    "pouvoir": [
+      {"name": "Poing explosif", "dommage": 14},
+      {"name": "Coup de pied détonant", "dommage": 16},
+      {"name": "Projection d'argile", "dommage": 12},
+      {"name": "Esquive explosive", "dommage": 9}
+    ],
+    "attaqueChakra": [
+      {"name": "Oiseau d'argile", "dommage": 25},
+      {"name": "Araignée d'argile", "dommage": 20},
+      {"name": "Serpent d'argile", "dommage": 28},
+      {"name": "Dragon d'argile", "dommage": 32}
+    ],
+    "attaqueUltime": [
+      {"name": "C1: Explosion", "dommage": 35},
+      {"name": "C2: Dragon", "dommage": 40},
+      {"name": "C3: Colosse", "dommage": 45},
+      {"name": "C4: Karura", "dommage": 50}
+    ],
+     "image" : "https://files.catbox.moe/g42i74.jpeg"
+  },
+  "Deidara_C0": {
+    "force": 80,
+    "pouvoir": [
+      {"name": "Poing ultime", "dommage": 25},
+      {"name": "Coup de pied final", "dommage": 28},
+      {"name": "Projection suprême", "dommage": 22},
+      {"name": "Esquive ultime", "dommage": 20}
+    ],
+    "attaqueChakra": [
+      {"name": "Explosion nucléaire", "dommage": 60},
+      {"name": "Onde de choc", "dommage": 55},
+      {"name": "Radiation", "dommage": 50},
+      {"name": "Implosion", "dommage": 65}
+    ],
+    "attaqueUltime": [
+      {"name": "C0: Autodestruction", "dommage": 99},
+      {"name": "Sceau explosif", "dommage": 0},
+      {"name": "Art ultime", "dommage": 70},
+      {"name": "Explosion spatiale", "dommage": 75}
+    ],
+     "image" : "https://files.catbox.moe/frkd86.jpeg"
+  },
+  "Kakuzu": {
+    "force": 55,
+    "pouvoir": [
+      {"name": "Poing de fil", "dommage": 16},
+      {"name": "Coup de pied durci", "dommage": 18},
+      {"name": "Projection de coeur", "dommage": 14},
+      {"name": "Esquive tentaculaire", "dommage": 12}
+    ],
+    "attaqueChakra": [
+      {"name": "Coeur de foudre", "dommage": 30},
+      {"name": "Coeur de feu", "dommage": 32},
+      {"name": "Coeur de vent", "dommage": 28},
+      {"name": "Coeur d'eau", "dommage": 26}
+    ],
+    "attaqueUltime": [
+      {"name": "Domination des coeurs", "dommage": 45},
+      {"name": "Armure tentaculaire", "dommage": 0},
+      {"name": "Fusion élémentaire", "dommage": 50},
+      {"name": "Sceau d'immortalité", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/at117h.jpeg"
+  },
+  "Hidan": {
+    "force": 48,
+    "pouvoir": [
+      {"name": "Poing rituel", "dommage": 15},
+      {"name": "Coup de pied sacré", "dommage": 17},
+      {"name": "Projection de croix", "dommage": 13},
+      {"name": "Esquive immortelle", "dommage": 10}
+    ],
+    "attaqueChakra": [
+      {"name": "Rituel: Cercle", "dommage": 25},
+      {"name": "Rituel: Croix", "dommage": 28},
+      {"name": "Rituel: Triangle", "dommage": 22},
+      {"name": "Rituel: Carré", "dommage": 30}
+    ],
+    "attaqueUltime": [
+      {"name": "Rituel: Mort", "dommage": 40},
+      {"name": "Immortalité", "dommage": 0},
+      {"name": "Lien de sang", "dommage": 35},
+      {"name": "Sceau de Jashin", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/nntqap.jpeg"
+  },
+  "Sasori": {
+    "force": 50,
+    "pouvoir": [
+      {"name": "Poing de marionnette", "dommage": 14},
+      {"name": "Coup de pied mécanique", "dommage": 16},
+      {"name": "Projection de fil", "dommage": 12},
+      {"name": "Esquive contrôlée", "dommage": 9}
+    ],
+    "attaqueChakra": [
+      {"name": "Marionnette: Hiruko", "dommage": 25},
+      {"name": "Marionnette: 3ème Kazekage", "dommage": 35},
+      {"name": "Marionnette: Corps", "dommage": 30},
+      {"name": "Marionnette: Cent", "dommage": 40}
+    ],
+    "attaqueUltime": [
+      {"name": "Théâtre de marionnettes", "dommage": 45},
+      {"name": "Poison ultime", "dommage": 38},
+      {"name": "Contrôle parfait", "dommage": 0},
+      {"name": "Cœur de marionnette", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/j2d44z.jpeg"
+  },
+  "Itachi": {
+    "force": 60,
+    "pouvoir": [
+      {"name": "Poing d'Uchiha", "dommage": 16},
+      {"name": "Coup de pied partagé", "dommage": 18},
+      {"name": "Projection de shuriken", "dommage": 14},
+      {"name": "Esquive partagée", "dommage": 12}
+    ],
+    "attaqueChakra": [
+      {"name": "Sharingan: Copie", "dommage": 0},
+      {"name": "Sharingan: Illusion", "dommage": 25},
+      {"name": "Grande boule de feu", "dommage": 28},
+      {"name": "Shuriken ombre", "dommage": 22}
+    ],
+    "attaqueUltime": [
+      {"name": "Tsukuyomi", "dommage": 40},
+      {"name": "Amaterasu", "dommage": 45},
+      {"name": "Susano'o", "dommage": 50},
+      {"name": "Yata Mirror", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/l8iw83.jpeg"
+  },
+  "Itachi_AmaterasuSusanoo": {
+    "force": 75,
+    "pouvoir": [
+      {"name": "Poing de Susano'o", "dommage": 25},
+      {"name": "Coup de pied d'Amaterasu", "dommage": 28},
+      {"name": "Projection de flammes", "dommage": 22},
+      {"name": "Esquive de Susano'o", "dommage": 20}
+    ],
+    "attaqueChakra": [
+      {"name": "Amaterasu: Flamme", "dommage": 45},
+      {"name": "Susano'o: Épée", "dommage": 48},
+      {"name": "Tsukuyomi: Lune", "dommage": 42},
+      {"name": "Yasaka Magatama", "dommage": 40}
+    ],
+    "attaqueUltime": [
+      {"name": "Susano'o Complet", "dommage": 60},
+      {"name": "Amaterasu: Enfer", "dommage": 55},
+      {"name": "Totsuka Blade", "dommage": 65},
+      {"name": "Yata Mirror: Réflexion", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/ch1la5.jpeg"
+  },
+  "Kisame": {
+    "force": 65,
+    "pouvoir": [
+      {"name": "Poing de requin", "dommage": 18},
+      {"name": "Coup de pied aquatique", "dommage": 20},
+      {"name": "Projection d'eau", "dommage": 16},
+      {"name": "Esquive marine", "dommage": 14}
+    ],
+    "attaqueChakra": [
+      {"name": "Style Eau: Requin", "dommage": 30},
+      {"name": "Style Eau: Prison", "dommage": 35},
+      {"name": "Style Eau: Explosion", "dommage": 32},
+      {"name": "Style Eau: Tsunami", "dommage": 38}
+    ],
+    "attaqueUltime": [
+      {"name": "Samehada: Fusion", "dommage": 45},
+      {"name": "Démon des mers", "dommage": 50},
+      {"name": "Absorption de chakra", "dommage": 0},
+      {"name": "Sceau aquatique", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/qnor1b.jpeg"
+  },
+  "Kisame_Samehada": {
+    "force": 70,
+    "pouvoir": [
+      {"name": "Poing de Samehada", "dommage": 22},
+      {"name": "Coup de pied tranchant", "dommage": 24},
+      {"name": "Projection d'écailles", "dommage": 20},
+      {"name": "Esquive absorbante", "dommage": 18}
+    ],
+    "attaqueChakra": [
+      {"name": "Samehada: Dévoration", "dommage": 35},
+      {"name": "Samehada: Fusion", "dommage": 40},
+      {"name": "Style Eau: Dragon", "dommage": 38},
+      {"name": "Style Eau: Ouragan", "dommage": 42}
+    ],
+    "attaqueUltime": [
+      {"name": "Démon des mers: Forme", "dommage": 55},
+      {"name": "Absorption ultime", "dommage": 0},
+      {"name": "Rasengan de requin", "dommage": 45},
+      {"name": "Sceau de Samehada", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/f1bdpo.jpeg"
+  },
+  "Orochimaru": {
+    "force": 60,
+    "pouvoir": [
+      {"name": "Poing de serpent", "dommage": 16},
+      {"name": "Coup de pied venimeux", "dommage": 18},
+      {"name": "Projection de serpent", "dommage": 14},
+      {"name": "Esquive serpentine", "dommage": 12}
+    ],
+    "attaqueChakra": [
+      {"name": "Invocation: Serpent", "dommage": 25},
+      {"name": "Style Serpent: Lien", "dommage": 28},
+      {"name": "Style Serpent: Poison", "dommage": 30},
+      {"name": "Régénération", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Technique de renaissance", "dommage": 0},
+      {"name": "Contrôle des âmes", "dommage": 40},
+      {"name": "Sceau maudit", "dommage": 35},
+      {"name": "Immortalité", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/6u86z1.jpeg"
+  },
+  "Orochimaru_SageBlanc": {
+    "force": 75,
+    "pouvoir": [
+      {"name": "Poing blanc", "dommage": 22},
+      {"name": "Coup de pied divin", "dommage": 24},
+      {"name": "Projection blanche", "dommage": 20},
+      {"name": "Esquive céleste", "dommage": 18}
+    ],
+    "attaqueChakra": [
+      {"name": "Mode Sage: Serpent", "dommage": 35},
+      {"name": "Mode Sage: Régénération", "dommage": 0},
+      {"name": "Mode Sage: Poison", "dommage": 38},
+      {"name": "Mode Sage: Invocation", "dommage": 40}
+    ],
+    "attaqueUltime": [
+      {"name": "Serpent divin", "dommage": 50},
+      {"name": "Renaissance parfaite", "dommage": 0},
+      {"name": "Contrôle absolu", "dommage": 45},
+      {"name": "Sceau du sage", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/t3kjmw.jpeg"
+  },
+  "Kaguya": {
+    "force": 90,
+    "pouvoir": [
+      {"name": "Poing divin", "dommage": 25},
+      {"name": "Coup de pied céleste", "dommage": 28},
+      {"name": "Projection dimensionnelle", "dommage": 22},
+      {"name": "Esquive divine", "dommage": 20}
+    ],
+    "attaqueChakra": [
+      {"name": "Tout-puissant: Cendre", "dommage": 40},
+      {"name": "Tout-puissant: Glace", "dommage": 42},
+      {"name": "Tout-puissant: Lave", "dommage": 45},
+      {"name": "Tout-puissant: Foudre", "dommage": 38}
+    ],
+    "attaqueUltime": [
+      {"name": "Expansion dimensionnelle", "dommage": 60},
+      {"name": "Contrôle dimensionnel", "dommage": 55},
+      {"name": "Sceau de la lune", "dommage": 65},
+      {"name": "Rinne Sharingan", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/mulfq2.jpeg"
+  },
+  "Kaguya_ExpansionDivine": {
+    "force": 95,
+    "pouvoir": [
+      {"name": "Poing expansion", "dommage": 28},
+      {"name": "Coup de pied expansion", "dommage": 30},
+      {"name": "Projection expansion", "dommage": 28},
+      {"name": "Coup de pied expansion", "dommage": 30},
+      {"name": "Projection expansion", "dommage": 25},
+      {"name": "Esquive expansion", "dommage": 22}
+    ],
+    "attaqueChakra": [
+      {"name": "Expansion: Cendre", "dommage": 45},
+      {"name": "Expansion: Glace", "dommage": 48},
+      {"name": "Expansion: Lave", "dommage": 50},
+      {"name": "Expansion: Foudre", "dommage": 42}
+    ],
+    "attaqueUltime": [
+      {"name": "Expansion ultime", "dommage": 70},
+      {"name": "Contrôle absolu", "dommage": 65},
+      {"name": "Sceau divin", "dommage": 75},
+      {"name": "Rinne Sharingan: Réveil", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/kmm6ug.jpeg"
+  },
+  "Hamura": {
+    "force": 85,
+    "pouvoir": [
+      {"name": "Poing lunaire", "dommage": 22},
+      {"name": "Coup de pied lunaire", "dommage": 24},
+      {"name": "Projection lunaire", "dommage": 20},
+      {"name": "Esquive lunaire", "dommage": 18}
+    ],
+    "attaqueChakra": [
+      {"name": "Tenseigan: Orb", "dommage": 35},
+      {"name": "Tenseigan: Protection", "dommage": 0},
+      {"name": "Tenseigan: Contrôle", "dommage": 40},
+      {"name": "Tenseigan: Vision", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Tenseigan", "dommage": 55},
+      {"name": "Contrôle gravitationnel", "dommage": 50},
+      {"name": "Sceau de la lune", "dommage": 60},
+      {"name": "Rinnegan lunaire", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/zgudvy.jpeg"
+  },
+  "Hamura_Tenseigan": {
+    "force": 90,
+    "pouvoir": [
+      {"name": "Poing Tenseigan", "dommage": 25},
+      {"name": "Coup de pied Tenseigan", "dommage": 28},
+      {"name": "Projection Tenseigan", "dommage": 22},
+      {"name": "Esquive Tenseigan", "dommage": 20}
+    ],
+    "attaqueChakra": [
+      {"name": "Tenseigan: Orb ultime", "dommage": 45},
+      {"name": "Tenseigan: Protection ultime", "dommage": 0},
+      {"name": "Tenseigan: Contrôle ultime", "dommage": 48},
+      {"name": "Tenseigan: Vision ultime", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Tenseigan complet", "dommage": 60},
+      {"name": "Contrôle gravitationnel ultime", "dommage": 55},
+      {"name": "Sceau lunaire ultime", "dommage": 65},
+      {"name": "Rinnegan lunaire ultime", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/lha6yi.jpeg"
+  },
+  "Hagoromo": {
+    "force": 95,
+    "pouvoir": [
+      {"name": "Poing de sage", "dommage": 25},
+      {"name": "Coup de pied de sage", "dommage": 28},
+      {"name": "Projection de sage", "dommage": 22},
+      {"name": "Esquive de sage", "dommage": 20}
+    ],
+    "attaqueChakra": [
+      {"name": "Six Chemins: Orbe", "dommage": 45},
+      {"name": "Six Chemins: Contrôle", "dommage": 48},
+      {"name": "Six Chemins: Protection", "dommage": 0},
+      {"name": "Six Chemins: Vision", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Six Chemins", "dommage": 65},
+      {"name": "Contrôle de la vérité", "dommage": 60},
+      {"name": "Sceau des six chemins", "dommage": 70},
+      {"name": "Rinnegan suprême", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/8gutk9.jpeg"
+  },
+  "Hagoromo_SixPaths": {
+    "force": 100,
+    "pouvoir": [
+      {"name": "Poing six chemins", "dommage": 28},
+      {"name": "Coup de pied six chemins", "dommage": 30},
+      {"name": "Projection six chemins", "dommage": 25},
+      {"name": "Esquive six chemins", "dommage": 22}
+    ],
+    "attaqueChakra": [
+      {"name": "Six Chemins: Orbe ultime", "dommage": 50},
+      {"name": "Six Chemins: Contrôle ultime", "dommage": 55},
+      {"name": "Six Chemins: Protection ultime", "dommage": 0},
+      {"name": "Six Chemins: Vision ultime", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Six Chemins complet", "dommage": 70},
+      {"name": "Contrôle de la vérité ultime", "dommage": 65},
+      {"name": "Sceau des six chemins ultime", "dommage": 75},
+      {"name": "Rinnegan suprême ultime", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/b7bufp.jpeg"
+  },
+  "Indra": {
+    "force": 80,
+    "pouvoir": [
+      {"name": "Poing d'Indra", "dommage": 20},
+      {"name": "Coup de pied d'Indra", "dommage": 22},
+      {"name": "Projection d'Indra", "dommage": 18},
+      {"name": "Esquive d'Indra", "dommage": 16}
+    ],
+    "attaqueChakra": [
+      {"name": "Sharingan: Copie", "dommage": 0},
+      {"name": "Sharingan: Illusion", "dommage": 30},
+      {"name": "Grande boule de feu", "dommage": 32},
+      {"name": "Shuriken ombre", "dommage": 28}
+    ],
+    "attaqueUltime": [
+      {"name": "Susano'o d'Indra", "dommage": 50},
+      {"name": "Contrôle de la foudre", "dommage": 45},
+      {"name": "Sceau d'Indra", "dommage": 55},
+      {"name": "Rinnegan d'Indra", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/77y70f.jpeg"
+  },
+  "Asura": {
+    "force": 80,
+    "pouvoir": [
+      {"name": "Poing d'Asura", "dommage": 20},
+      {"name": "Coup de pied d'Asura", "dommage": 22},
+      {"name": "Projection d'Asura", "dommage": 18},
+      {"name": "Esquive d'Asura", "dommage": 16}
+    ],
+    "attaqueChakra": [
+      {"name": "Mode Sage: Orbe", "dommage": 35},
+      {"name": "Mode Sage: Protection", "dommage": 0},
+      {"name": "Mode Sage: Contrôle", "dommage": 38},
+      {"name": "Mode Sage: Vision", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Sage complet", "dommage": 55},
+      {"name": "Contrôle de la nature", "dommage": 50},
+      {"name": "Sceau d'Asura", "dommage": 60},
+      {"name": "Rinnegan d'Asura", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/vfo4r2.jpeg"
+  },
+  "Momoshiki": {
+    "force": 85,
+    "pouvoir": [
+      {"name": "Poing de Momoshiki", "dommage": 22},
+      {"name": "Coup de pied de Momoshiki", "dommage": 24},
+      {"name": "Projection de Momoshiki", "dommage": 20},
+      {"name": "Esquive de Momoshiki", "dommage": 18}
+    ],
+    "attaqueChakra": [
+      {"name": "Absorption: Chakra", "dommage": 0},
+      {"name": "Absorption: Technique", "dommage": 40},
+      {"name": "Rinnegan: Vision", "dommage": 0},
+      {"name": "Rinnegan: Contrôle", "dommage": 42}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Rinnegan", "dommage": 60},
+      {"name": "Contrôle dimensionnel", "dommage": 55},
+      {"name": "Sceau de Momoshiki", "dommage": 65},
+      {"name": "Rinnegan suprême", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/cboara.jpeg"
+  },
+  "Isshiki": {
+    "force": 90,
+    "pouvoir": [
+      {"name": "Poing d'Isshiki", "dommage": 25},
+      {"name": "Coup de pied d'Isshiki", "dommage": 28},
+      {"name": "Projection d'Isshiki", "dommage": 22},
+      {"name": "Esquive d'Isshiki", "dommage": 20}
+    ],
+    "attaqueChakra": [
+      {"name": "Sukuna-Hikona: Réduction", "dommage": 45},
+      {"name": "Sukuna-Hikona: Expansion", "dommage": 48},
+      {"name": "Daikokuten: Stockage", "dommage": 0},
+      {"name": "Daikokuten: Libération", "dommage": 50}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Jigen", "dommage": 65},
+      {"name": "Contrôle dimensionnel", "dommage": 60},
+      {"name": "Sceau d'Isshiki", "dommage": 70},
+      {"name": "Rinnegan d'Isshiki", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/gpuf2j.jpeg"
+  },
+  "Jigen": {
+    "force": 85,
+    "pouvoir": [
+      {"name": "Poing de Jigen", "dommage": 22},
+      {"name": "Coup de pied de Jigen", "dommage": 24},
+      {"name": "Projection de Jigen", "dommage": 20},
+      {"name": "Esquive de Jigen", "dommage": 18}
+    ],
+    "attaqueChakra": [
+      {"name": "Sukuna-Hikona: Réduction", "dommage": 40},
+      {"name": "Sukuna-Hikona: Expansion", "dommage": 42},
+      {"name": "Daikokuten: Stockage", "dommage": 0},
+      {"name": "Daikokuten: Libération", "dommage": 45}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Jigen complet", "dommage": 60},
+      {"name": "Contrôle dimensionnel", "dommage": 55},
+      {"name": "Sceau de Jigen", "dommage": 65},
+      {"name": "Rinnegan de Jigen", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/rxmvf5.jpeg"
+  },
+  "Boruto": {
+    "force": 40,
+    "pouvoir": [
+      {"name": "Poing de Boruto", "dommage": 12},
+      {"name": "Coup de pied de Boruto", "dommage": 14},
+      {"name": "Projection de Boruto", "dommage": 10},
+      {"name": "Esquive de Boruto", "dommage": 8}
+    ],
+    "attaqueChakra": [
+      {"name": "Rasengan", "dommage": 25},
+      {"name": "Rasengan: Vent", "dommage": 28},
+      {"name": "Rasengan: Foudre", "dommage": 30},
+      {"name": "Rasengan: Eau", "dommage": 26}
+    ],
+    "attaqueUltime": [
+      {"name": "Rasengan ultime", "dommage": 35},
+      {"name": "Contrôle des éléments", "dommage": 32},
+      {"name": "Sceau de Boruto", "dommage": 0},
+      {"name": "Vision de Boruto", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/kvb55j.jpeg"
+  },
+  "Boruto_Karma": {
+    "force": 60,
+    "pouvoir": [
+      {"name": "Poing Karma", "dommage": 18},
+      {"name": "Coup de pied Karma", "dommage": 20},
+      {"name": "Projection Karma", "dommage": 16},
+      {"name": "Esquive Karma", "dommage": 14}
+    ],
+    "attaqueChakra": [
+      {"name": "Karma: Absorption", "dommage": 0},
+      {"name": "Karma: Libération", "dommage": 35},
+      {"name": "Karma: Contrôle", "dommage": 38},
+      {"name": "Karma: Vision", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Karma", "dommage": 45},
+      {"name": "Contrôle dimensionnel", "dommage": 40},
+      {"name": "Sceau Karma", "dommage": 50},
+      {"name": "Rinnegan Karma", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/9g25vc.jpeg"
+  },
+  "Kawaki": {
+    "force": 55,
+    "pouvoir": [
+      {"name": "Poing de Kawaki", "dommage": 16},
+      {"name": "Coup de pied de Kawaki", "dommage": 18},
+      {"name": "Projection de Kawaki", "dommage": 14},
+      {"name": "Esquive de Kawaki", "dommage": 12}
+    ],
+    "attaqueChakra": [
+      {"name": "Karma: Absorption", "dommage": 0},
+      {"name": "Karma: Libération", "dommage": 32},
+      {"name": "Karma: Contrôle", "dommage": 35},
+      {"name": "Karma: Vision", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Karma", "dommage": 42},
+      {"name": "Contrôle dimensionnel", "dommage": 38},
+      {"name": "Sceau de Kawaki", "dommage": 45},
+      {"name": "Rinnegan de Kawaki", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/aqvtlh.jpeg"
+  },
+  "Sarada": {
+    "force": 42,
+    "pouvoir": [
+      {"name": "Poing d'Uchiha", "dommage": 13},
+      {"name": "Coup de pied d'Uchiha", "dommage": 15},
+      {"name": "Projection de shuriken", "dommage": 11},
+      {"name": "Esquive d'Uchiha", "dommage": 9}
+    ],
+    "attaqueChakra": [
+      {"name": "Sharingan: Copie", "dommage": 0},
+      {"name": "Sharingan: Illusion", "dommage": 22},
+      {"name": "Grande boule de feu", "dommage": 25},
+      {"name": "Shuriken ombre", "dommage": 20}
+    ],
+    "attaqueUltime": [
+      {"name": "Chidori", "dommage": 35},
+      {"name": "Chidori: Épée", "dommage": 38},
+      {"name": "Chidori: Flèche", "dommage": 32},
+      {"name": "Sharingan: Éveil", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/98mspj.jpeg"
+  },
+  "Mitsuki": {
+    "force": 45,
+    "pouvoir": [
+      {"name": "Poing de Mitsuki", "dommage": 14},
+      {"name": "Coup de pied de Mitsuki", "dommage": 16},
+      {"name": "Projection de Mitsuki", "dommage": 12},
+      {"name": "Esquive de Mitsuki", "dommage": 10}
+    ],
+    "attaqueChakra": [
+      {"name": "Style Serpent: Lien", "dommage": 25},
+      {"name": "Style Serpent: Poison", "dommage": 28},
+      {"name": "Style Serpent: Invocation", "dommage": 22},
+      {"name": "Style Serpent: Régénération", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Sage", "dommage": 40},
+      {"name": "Contrôle des serpents", "dommage": 35},
+      {"name": "Sceau de Mitsuki", "dommage": 0},
+      {"name": "Régénération ultime", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/x6dk47.jpeg"
+  },
+  "KillerBee": {
+    "force": 65,
+    "pouvoir": [
+      {"name": "Poing de Bee", "dommage": 18},
+      {"name": "Coup de pied de Bee", "dommage": 20},
+      {"name": "Projection de Bee", "dommage": 16},
+      {"name": "Esquive de Bee", "dommage": 14}
+    ],
+    "attaqueChakra": [
+      {"name": "Hachibi: Tentacule", "dommage": 30},
+      {"name": "Hachibi: Corne", "dommage": 32},
+      {"name": "Hachibi: Queue", "dommage": 35},
+      {"name": "Hachibi: Protection", "dommage": 0}
+    ],
+    "attaqueUltime": [
+      {"name": "Mode Hachibi", "dommage": 50},
+      {"name": "Lariat", "dommage": 45},
+      {"name": "Rasengan: Hachibi", "dommage": 42},
+      {"name": "Sceau de Hachibi", "dommage": 0}
+    ],
+     "image" : "https://files.catbox.moe/ef40gn.jpeg"
+  }
+} 
+
+let noms = Object.keys(personnages);
+let nomAlea = noms[Math.floor(Math.random()* noms.length)]
+let persoAlea = personnages[nomAlea]
+
+const nomPouvoir = persoAlea.pouvoir.map(a => (a.name))
+const persoChakraAttaque = persoAlea.attaqueChakra.map(b => (b.name));
+const persoUltime = persoAlea.attaqueUltime.map(c => (c.name));
+localStorage.setItem("ordiNom",nomAlea);
+localStorage.setItem("ordiBase",JSON.stringify(nomPouvoir));
+localStorage.setItem("ordiChakra",JSON.stringify(persoChakraAttaque));
+localStorage.setItem("ordiUltime", JSON.stringify(persoUltime));
+
+     
+      let detailPerso = document.getElementById("detail");
+   detailPerso.innerHTML=`<h1 class="personne"> compétances</h1>`
+   
+    let body = document.getElementById("body")
+    let audio = document.getElementById("audio")
+    audio.currentTime = 6;
+    audio.loop= true;
+     function afficherPerso(nom) {
+       if(audio.paused) {
+         audio.play()
+       }
+      const perso = personnages[nom]
+      body.style.backgroundImage = `url('${perso.image}')`
+      body.style.backgroundSize = "cover"
+      body.style.backgroundPosition = "center"
+      body.style.backgroundRepeat= "no-repeat"
+      body.style.backgroundAttachment = "fixed"
+      if(!perso) return; 
+      const listePouvoir =perso.pouvoir.map(p => `
+      <li>${p.name} (${p.dommage}% dêgats) </li>
+    `).join('');
+      
+      detailPerso.innerHTML = `
+      <h1 class="personne">compétances</h1>
+      <h2>${nom}</h2>
+      <b class="force" ><strong>Force :  </strong> ${perso.force}%</b>
+      
+      &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+      <b class="strong" ><strong>Pouvoirs : </strong></b>
+      <ul>${listePouvoir}</ul>`
+    
+      const jutsu = perso.pouvoir.map(a => ( a.name));
+      const degat = perso.pouvoir.map(b => ( b.dommage));
+      
+      const attaqueChakra = perso.attaqueChakra.map(c => c.name)
+      const attaqueUltime = perso.attaqueUltime.map(d => d.name)
+      
+      const puissance = perso.force;
+      const persoChoisie = nom;
+      
+    localStorage.setItem("jutsu",JSON.stringify(jutsu));
+    localStorage.setItem("jutsuChakra",JSON.stringify(attaqueChakra));
+    localStorage.setItem("jutsuUltime",JSON.stringify(attaqueUltime));
+    
+    localStorage.setItem("degat",degat);
+    
+    localStorage.setItem("force",puissance);
+    localStorage.setItem("personne",persoChoisie);
+     }
+    
+   function passer() {
+    window.location.href="salle.html"
+    
+  }
+
+
+
+    </script>
+  </body>
+</html>
+
