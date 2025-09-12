@@ -1,639 +1,668 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
-    <title>Salle de combat</title>
-    <link rel="icon" href="https://i.imgur.com/scZ6zqc.jpeg">
-    <style>
-      .body{
-        background-attachment: fixed;
-        background-position: center;
-        background-size: cover;
-        font-family: Arial, Sans-Serif;
-        color: white;
-        text-align: center;
-        background-image: url("https://raw.githubusercontent.com/DARCK-CREATOR/NARUTO-STORM-V2/main/IMG-20250827-WA0012(1).jpg")
-      }
-      .annonce {
-        font-size: 1.9rem;
-        color: gold;
-        font-family: 'Segoe UI',Tahoma,Verdana, Comic Sans MS;
-        text-shadow: 0 2px 6px #000000;
-      }
-      .container {
-        width: 300px;
-          background: rgba(0,0,0,0.4);
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid transparent;
-        border-collapse: collapse;
-        height: 400px;
-        margin-bottom: 10px;
-        text-align: left;
-        overflow-y: scroll;
-        overflow-x: hidden;
-      }
-      .modal {
-       padding: 8px;
-       border: 1px solid transparent;
-       width: 320px;
-       border-radius: 10px;
-       background: rgba(0,0,0,0.3);
-       margin-bottom: 15px;
-      }
-      .attaque {
-        padding: 15px;
-        background: rgba(0,0,0,0.4);
-        border-radius: 10px;
-        border: 1px solid gold;
-        white-space: nowrap;
-        overflow-x: scroll;
-        overflow-y: hidden;
-      }
-      .chakra {
-        text-align: left;
-        text-shadow: 0 2px 6px #000000;
-      }
-      .life {
-        text-align: right;
-        text-shadow: 0 2px 6px #000000;
-      }
-      .button {
-        padding: 10px;
-        background: rgba(0,0,0,0.2);
-        color: white;
-        border-radius: 10px 10px;
-        border: 2px solid white;
-        box-shadow: 0 4px 12px rgba(0,0,0 ,0.8);
-        font-family: Monospace;
-      
-      }
-      .button:hover{
-        background: #50531d;
-        border-left: 4px solid #f0f0f0;
-      }
-      .userAttaque{
-        text-align: right;
-        color: gold;
-        text-shadow: 0 2px 6px #000000;
-        font-size: 12px;
-        margin: 0;
-        white-space: normal;
-        padding: 8px;
-        font-family: Georgia,serif;
-        box-shadow: 0 2px 8px #ffffff79;
-        border-radius: 10px;
-        margin-bottom: 10px;
-      }
-     .no-chakra {
-       font-size: 10px;
-       text-align: right;
-       color: red;
-        border-radius: 10px;
-       box-shadow: 0 2px 8px #ffffff79;
-       padding: 10px;
-       text-shadow: 0 2px 6px #000000;
-     }
-     .yes-chakra {
-       font-size: 10px;
-       text-align: right;
-       border-radius: 10px;
-       box-shadow: 0 2px 6px #ffffff79;
-       padding: 10px;
-       text-shadow: 0 2px 6px #000000;
-     }
-     .no-chakra-ordi,#no-chakra-ordi {
-       font-size: 10px;
-       text-align: left;
-       color: red;
-       border-radius: 10px;
-       box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-       padding: 10px;
-       text-shadow: 0 2px 6px #000000;
-     }
-     .ordi {
-       font-size: 12px;
-       text-align: left;
-       font-family: Georgia,serif;
-       color: white;
-       text-shadow: 0 2px 6px #000000;
-       background-color: #dde1daf;
-       border-radius: 10px;
-       padding: 10px;
-       box-shadow: 0 2px 6px #ffffff79;
-       margin-bottom: 10px;
-     }
-     .yes-chakra-ordi{
-       font-size: 10px;
-       text-align: left;
-       color: yellow;
-       background-color: transparent;
-       border-radius: 10px;
-       box-shadow: 0 2px 6px #ffffff79;
-       padding: 10px;
-       text-shadow: 0 2px 6px #000000;
-     }
-     #chakraOrdiP,#lifeOrdi {
-       color: white;
-       text-shadow: 0 2px 6px #000000;
-     }
-     #lifeUser,#chakra {
-       color: white;
-       text-shadow: 0 2px 6px #000000;
-     }
-     .chakraOrdi {
-       color: blue;
-       font-size: 10px;
-       background-color: transparent;
-       border-radius: 10px;
-       box-shadow: 0 2px 6px #ffffff79;
-       padding: 10px;
-       text-shadow: 0 2px 6px #000000;
-     }
-     .ordi-yes-chakra {
-       text-align: left;
-       font-size: 10px;
-       color: white;
-       border-radius: 10px;
-       box-shadow: 0 2px 6px #ffffff79;
-       padding: 10px;
-       text-shadow: 0 2px 6px #000000;
-     }
-     .dialog {
-       background: transparent;
-       border-radius: 20px;
-       border: 1px dashed white;
-       width: 230px;
-       height: 200px;
-       text-align: center;
-       pointer: cursor
-     }
-     .dialog-h1 {
-       color: yellow;
-       font-size: 1.5em;
-     }
-     .dialog-p {
-       color: white;
-     }
-     .dialog button {
-       padding: 10px;
-       border: none;
-       background-color: #779a66;
-       color: white;
-       border-radius: 18px 18px;
-       margin-bottom: 1em;
-       pointer-events: cursor;
-       width: 100%;
-     }
-     .dialog::backdrop {
-        background: rgba(0,0,0,0.7);
-      }
-      .musique {
-        background-color: transparent;
-        color: white;
-        padding: 10px;
-        border-radius: 20px;
-        border: none;
-        font-family: Monospace;
-      }
-      .img {
-        border-radius: 50%;
-        text-align: right;
-        background: transparent;
-        width: 120px;
-        height: 120px;
-        border: 1px solid #000000;
-        background-size: cover;
-        background-position: center;
-      }
-      .vs {
-      font-size: 20px;
-      text-shadow:  0 2px 6px #000000, 02px 6px #000000;
-      color: white;
-      }
-      @media (min-width: 601px) {
-        .container,.modal {
-          width: 820px;
-          
-        }
-        .annonce {
-          font-size: 4em;
-          margin-top: 1em;
-          margin-bottom: 2em;
-        }
-        b,p {
-          font-size: 16px;
-        }
-        .userAttaque,.ordi{
-          font-size: 22px;
-        }
-        .modal {
-          word-spacing: 10px;
-        }
-        .attaque {
-            text-align: center;
-            white-space: auto;
-            word-spacing: 50px;
-            width: 820px;
-        }
-      }
-    
-      @media (max-height: 900px) {
-        .container {
-          height: 200px;
-        }
-      }
-      @media (max-width: 200px) {
-        .container {
-          width: 100px;
-        }
-      }
-      </style>
-      </head>
-  <body class="body">
-    <audio src="https://raw.githubusercontent.com/DARCK-CREATOR/NARUTO-STORM-V2/main/AUD-20250910-WA0002.mp3" id="audio" style="display: none;"></audio>
-    <h1 class="annonce">SALLE DE COMBAT</h1>
-    <center>
-      <div class="modal">
-        <img id="ordiImage" class="img">
-        <b class="vs">VS</b>
-       <img class="img" id="persoImage">
-        <hr/>
-  <button class="musique" onclick="jouer()">
-    Musique</button>
-  <button class="musique" onclick="pause()">Pause
-  </button>
-      </div>
-    </center>
-    <center>
-       <div class="modal">
-         
-      <b id="chakraOrdiP"></b>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <b id="chakra" class="chakra"></b><br>
-      
-    
-  <b id="lifeOrdi" class="lifeOrdi"></b>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <b id="lifeUser"></b>
- 
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+  <title>Salle de combat</title>
+  <style>
+    .body{
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: Arial, Sans-Serif;
+    color: white;
+    text-align: center;
+    }
+    .annonce {
+    font-size: 1.9rem;
+    color: gold;
+    font-family: 'Segoe UI',Tahoma,Verdana, Comic Sans MS;
+    text-shadow: 0 2px 6px #000000;
+    }
+    .container {
+    width: 300px;
+    height: 500px;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    text-align: left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    }
+    .modal {
+    padding: 8px;
+    border: 1px solid transparent;
+    width: 320px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+    }
+    .attaque {
+    padding: 15px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    border: none;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    }
+    .chakra {
+    text-align: left;
+    text-shadow: 0 2px 6px #000000;
+    }
+    .life {
+    text-align: right;
+    text-shadow: 0 2px 6px #000000;
+    }
+    .button {
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,0.2);
+    color: white;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-right: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0 ,0.8);
+    font-family: Monospace;
 
-   </center>
-<center> 
+    }
+    .button:active{
+    background: #50531d;
+    border-left: 4px solid #f0f0f0;
+    }
+    .userAttaque{
+    text-align: right;
+    color: gold;
+    text-shadow: 0 2px 6px #000000;
+    font-size: 12px;
+    margin: 0;
+    white-space: normal;
+    padding: 8px;
+    font-family: Georgia,serif;
+    box-shadow: 0 2px 8px #ffffff79;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    }
+    .no-chakra {
+    font-size: 10px;
+    text-align: right;
+    color: red;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #ffffff79;
+    padding: 10px;
+    text-shadow: 0 2px 6px #000000;
+    }
+    .yes-chakra {
+    font-size: 10px;
+    text-align: right;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px #ffffff79;
+    padding: 10px;
+    text-shadow: 0 2px 6px #000000;
+    }
+    .no-chakra-ordi,#no-chakra-ordi {
+    font-size: 10px;
+    text-align: left;
+    color: red;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    padding: 10px;
+    text-shadow: 0 2px 6px #000000;
+    }
+    .ordi {
+    font-size: 12px;
+    text-align: left;
+    font-family: Georgia,serif;
+    color: white;
+    text-shadow: 0 2px 6px #000000;
+    background-color: #dde1daf;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 6px #ffffff79;
+    margin-bottom: 10px;
+    }
+    .yes-chakra-ordi{
+    font-size: 10px;
+    text-align: left;
+    color: yellow;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px #ffffff79;
+    padding: 10px;
+    text-shadow: 0 2px 6px #000000;
+    }
+    #chakraOrdiP,#lifeOrdi {
+    color: white;
+    text-shadow: 0 2px 6px #000000;
+    }
+    #lifeUser,#chakra {
+    color: white;
+    text-shadow: 0 2px 6px #000000;
+    }
+    .chakraOrdi {
+    color: blue;
+    font-size: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px #ffffff79;
+    padding: 10px;
+    text-shadow: 0 2px 6px #000000;
+    }
+    .ordi-yes-chakra {
+    text-align: left;
+    font-size: 10px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px #ffffff79;
+    padding: 10px;
+    text-shadow: 0 2px 6px #000000;
+    }
+    .dialog {
+    background: transparent;
+    border-radius: 20px;
+    border: 1px dashed white;
+    width: 230px;
+    height: 200px;
+    text-align: center;
+    pointer: cursor
+    }
+    .dialog-h1 {
+    color: yellow;
+    font-size: 1.5em;
+    }
+    .dialog-p {
+    color: white;
+    }
+    .dialog button {
+    padding: 10px;
+    border: none;
+    background-color: #779a66;
+    color: white;
+    border-radius: 18px 18px;
+    margin-bottom: 1em;
+    pointer-events: cursor;
+    width: 100%;
+    }
+    .dialog::backdrop {
+    background: rgba(0,0,0,0.7);
+    }
+    .musique {
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    font-family: Monospace;
+    }
+    .img {
+    border-radius: 50%;
+    text-align: right;
+    background: transparent;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #000000;
+    background-size: cover;
+    background-position: center;
+    }
+    .vs {
+    font-size: 20px;
+    text-shadow: 0 2px 6px #000000, 02px 6px #000000;
+    color: white;
+    }
+    @media (min-width: 601px) {
+    .container,.modal {
+    width: 820px;
+
+    }
+    .annonce {
+    font-size: 4em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    }
+    b,p {
+    font-size: 16px;
+    }
+    .userAttaque,.ordi{
+    font-size: 22px;
+    }
+    .modal {
+    word-spacing: 10px;
+    }
+    .attaque {
+    text-align: center;
+    white-space: auto;
+    word-spacing: 50px;
+    width: 820px;
+    }
+    }
+
+    @media (max-height: 900px) {
+    .container {
+    height: 200px;
+    }
+    }
+    @media (max-width: 200px) {
+    .container {
+    width: 100px;
+    }
+    }
+  </style>
+</head>
+<body class="body">
+  <audio src="https://raw.githubusercontent.com/DARCK-CREATOR/NARUTO-STORM-V2/main/naruto_strong_and_strike.mp3" id="audio" style="display: none;"></audio>
+  <h1 class="annonce">SALLE DE COMBAT</h1>
+  <center>
+    <div class="modal">
+      <img id="ordiImage" class="img">
+      <b class="vs">VS</b>
+      <img class="img" id="persoImage">
+      <hr />
+    <button class="musique" onclick="jouer()">
+      Musique</button>
+    <button class="musique" onclick="pause()">Pause
+    </button>
+  </div>
+</center>
+<center>
+  <div class="modal">
+
+    <b id="chakraOrdiP"></b>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b id="chakra" class="chakra"></b><br>
+
+
+    <b id="lifeOrdi" class="lifeOrdi"></b>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b id="lifeUser"></b>
+  </center>
+</div>
+
+</center>
+<center>
 <b>
 <div id="salle" class="container">
-  
+
 </div>
 </b>
-   </center>
-       <center>
-         <div class="attaque">
-        <button onclick="baseAttaque()" class="button">ATQ.BASIQUE</button>
-        <button onclick="chakraAttaque()" class="button">ATQ+CHAKRA</button>
-        <button onclick="chakraRecharge()" class="button">RECH.CHAKRA</button>
-        <button onclick="ultime()" class="button">ATQ.ULTIME</button>
-        
-      </div>
-      </center>
-    <dialog id="dialog" class="dialog">
-      <h1 class="dialog-h1">Fin du combat</h1>
-      <b><p class="dialog-p" id="fin">Hashirama remporte la victoire</p></b>
-      <button onclick="passer()">Changer de perso</button>
-     <br> <button onclick="recommencer()">Recommencer</button>
-      
-    </dialog>
-    <script>
-      let dialog = document.getElementById("dialog");
-     let fin = document.getElementById('fin')
-      let salle = document.getElementById("salle")
-      let chakraOrdiP = document.getElementById("chakraOrdiP");
-      let lifeUser = document.getElementById("lifeUser")
-      let lifeOrdi = document.getElementById("lifeOrdi")
-      let perso = localStorage.getItem("personne");
-      let attaque  = JSON.parse(localStorage.getItem("jutsu"));
-      let attaqueChakra = JSON.parse(localStorage.getItem("jutsuChakra"));
-      let attaqueUltime = JSON.parse(localStorage.getItem("jutsuUltime"));
-      let force = localStorage.getItem("force");
-      //pour l'ordinateur
-      let ordiNom =localStorage.getItem("ordiNom");
-      let ordiBase = JSON.parse(localStorage.getItem("ordiBase"));
-      let ordiChakra = JSON.parse(localStorage.getItem("ordiChakra"));
-      let ordiUltime = JSON.parse(localStorage.getItem("ordiUltime"));
-      let image = localStorage.getItem("image");
-      let imageOrdi = localStorage.getItem("imageOrdi");
-      let imagePerso= localStorage.getItem("imagePerso")
-    
-      document.getElementById("persoImage").style.backgroundImage = `url("${imagePerso}")`
-      document.getElementById("ordiImage").style.backgroundImage = `url("${imageOrdi}")`
-      //fin
-    
-      let chakra = 100;
-      let chakraOrdi = 100;
-      let vieUser = 100;
-      let vieOrdi = 100;
-      lifeUser.innerHTML= `VIE : ${vieUser}HP`
-      lifeOrdi.innerHTML= `VIE : ${vieOrdi}HP`
-      let chakraV = document.getElementById("chakra")
-      chakraV.innerHTML= `CHAKRA : ${chakra}%`
-      chakraOrdiP.innerHTML=`CHAKRA : ${chakraOrdi}%`
-      let tour = "user";
-      let audio = document.getElementById("audio")
-  
-    function jouer() {
-      audio.play();
-      audio.addEventListener("ended", function () {
-        audio.currentTime= 15;
-        audio.play();
-      })
-    }
-    function pause() {
-      audio.pause();
-    }
-    
-  function desactiverButton() {
-    document.querySelectorAll(".button").forEach(a => a.disabled = true);
-  }
-  function activerButton() {
-    document.querySelectorAll(".button").forEach(b => b.disabled = false);
-  }
-  
-  function ordiAtqBase() {
-    if(tour === "ordi") {
-    let ordiB = ordiBase[Math.floor(Math.random()* ordiBase.length)];
-    let degat = [6,7,8,9,10,11,12,13,14,15];
-    let degats = degat[Math.floor(Math.random()* degat.length)]
-    salle.innerHTML += `<p class="ordi">${ordiNom} utilise ${ordiB} inflige ${degats}% de degats a ${perso} </p>`
-    vieUser -= degats
-    if (vieUser <= 0) {
-salle.innerHTML +=` <p class="ordi"><b>${ordiNom} a gagné !</b></p>`;
+</center>
+<center>
+<div class="attaque">
+<button id="chakraRecharge" class="button">C
+</button>
+<button onclick="baseAttaque()" class="button">B</button>
+<button onclick="chakraAttaque()" class="button">A</button>
+<button onclick="ultime()" class="button">X</button>
+
+</div>
+</center>
+<dialog id="dialog" class="dialog">
+<h1 class="dialog-h1">Fin du combat</h1>
+<b><p class="dialog-p" id="fin">
+Hashirama remporte la victoire
+</p>
+</b>
+<button onclick="passer()">Changer de perso</button>
+<br> <button onclick="passer( window.location.href='salle.html')">Recommencer</button>
+
+</dialog>
+<script>
+let dialog = document.getElementById("dialog");
+let fin = document.getElementById('fin')
+let salle = document.getElementById("salle")
+let chakraOrdiP = document.getElementById("chakraOrdiP");
+let lifeUser = document.getElementById("lifeUser")
+let chakraRecharge = document.getElementById("chakraRecharge")
+let lifeOrdi = document.getElementById("lifeOrdi")
+let perso = localStorage.getItem("personne");
+let attaque = JSON.parse(localStorage.getItem("jutsu"));
+let attaqueChakra = JSON.parse(localStorage.getItem("jutsuChakra"));
+let attaqueUltime = JSON.parse(localStorage.getItem("jutsuUltime"));
+let force = localStorage.getItem("force");
+//pour l'ordinateur
+let ordiNom = localStorage.getItem("ordiNom");
+let ordiBase = JSON.parse(localStorage.getItem("ordiBase"));
+let ordiChakra = JSON.parse(localStorage.getItem("ordiChakra"));
+let ordiUltime = JSON.parse(localStorage.getItem("ordiUltime"));
+let image = localStorage.getItem("image");
+document.querySelector(".body").style.backgroundImage = `url("${image}")`
+let imageOrdi = localStorage.getItem("imageOrdi");
+let imagePerso = localStorage.getItem("imagePerso")
+
+document.getElementById("persoImage").style.backgroundImage = `url("${imagePerso}")`
+document.getElementById("ordiImage").style.backgroundImage = `url("${imageOrdi}")`
+//fin
+
+let chakra = 100;
+let chakraOrdi = 100;
+let vieUser = 100;
+let vieOrdi = 100;
+lifeUser.innerHTML = `VIE : ${vieUser}HP`
+lifeOrdi.innerHTML = `VIE : ${vieOrdi}HP`
+let chakraV = document.getElementById("chakra")
+chakraV.innerHTML = `CHAKRA : ${chakra}%`
+chakraOrdiP.innerHTML = `CHAKRA : ${chakraOrdi}%`
+let tour = "user";
+let audio = document.getElementById("audio")
+let progressChakra = 0;
+let intervalChakra;
+function jouer() {
+audio.play();
+audio.addEventListener("ended", function () {
+audio.currentTime = 15;
+audio.play();
+})
+}
+function pause() {
+audio.pause();
+}
+
+function desactiverButton() {
+document.querySelectorAll(".button").forEach(a => a.disabled = true);
+}
+function activerButton() {
+document.querySelectorAll(".button").forEach(b => b.disabled = false);
+}
+
+function ordiAtqBase() {
+if (tour === "ordi") {
+let ordiB = ordiBase[Math.floor(Math.random()* ordiBase.length)];
+let degat = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+let degats = degat[Math.floor(Math.random()* degat.length)]
+salle.innerHTML += `<p class="ordi">${ordiNom} utilise ${ordiB} inflige ${degats}% de degats a ${perso} </p>`
+vieUser -= degats
+if (vieUser <= 0) {
+salle.innerHTML += ` <p class="ordi"><b>${ordiNom} a gagné !</b></p>`;
 desactiverButton();
 return;
 }
 
-    lifeUser.innerHTML=`VIE : ${vieUser}HP`
-    tour = "user"
-    activerButton();
-  }
-  }
-  function ordiAtqUltime() {
-    if(tour === "ordi") {
-    if(chakraOrdi > 70) {
-    let attaquesUltime = ordiUltime[Math.floor(Math.random()* ordiUltime.length)];
-    let degat =  [30,32,43,41,38,35,39];
-      let degats = degat[Math.floor(Math.random()* degat.length)];
-      chakraOrdi -= 70
-      vieUser -= degats;
-         if (vieUser <= 0) {
-          salle.innerHTML += `<p class="ordi" ><b>${ordiNom} a gagné !</b></p>`;
-          finCombat();
-         desactiverButton();
-          return;
-          }
-  
-      salle.innerHTML += `<p class="ordi" >${ordiNom} utilise ${attaquesUltime} inflige ${degats}% a ${perso}</p>`
-      chakraOrdiP.innerHTML= `CHAKRA : ${chakraOrdi}%`
-      
-      lifeUser.innerHTML = `VIE : ${vieUser}HP`
-      tour = "user"
-      activerButton();
-    } else {
-      salle.innerHTML+=`<p id="no-chakra-ordi">chakra insufissant</p>`
-      tour = "user"
-      activerButton();
-    }
-    }
-  }
-  function ordiAtqChakra() {
-    if(tour === "ordi") {
-      if(chakraOrdi > 25) {
-      let attaquesChakra = ordiChakra[Math.floor(Math.random()* ordiChakra.length)]
-      let degat = [22,18,20,24,21,17,19];
-      let degats = degat[Math.floor(Math.random()* degat.length)]
-      salle.innerHTML += `<p class="ordi">${ordiNom} utilise ${attaquesChakra} inflige ${degats}% a ${perso}</p>`
-      vieUser -= degats
-        if (vieUser <= 0) {
-          salle.innerHTML += `<p class="ordi"><b>${ordiNom} a gagné !</b></p>`;
-          finCombat();
-         desactiverButton();
-          return;
-          }
-      chakraOrdi -=25;
-      chakraOrdiP.innerHTML= `CHAKRA : ${chakraOrdi}%`
-      lifeUser.innerHTML= `VIE : ${vieUser}HP`
-      tour="user"
-      activerButton();
-      } else {
-        salle.innerHTML+=`<p id="no-chakra-ordi">chakra insufissant</p>`
-        tour="user"
-        activerButton();
-      }
-    }
-  }
-  function ordiRecharge() {
-    if(tour === "ordi") {
-       if(chakraOrdi < 100) {
-         chakraOrdi +=20;
-         chakraOrdiP.innerHTML = `CHAKRA : ${chakraOrdi}%`
-         salle.innerHTML += `<p class="ordi-yes-chakra">${ordiNom} a plus 20% de chakra</p>`
-        chakraOrdiP.innerHTML=`CHAKRA : ${chakraOrdi}%`
-        tour="user"
-        activerButton()
-         if(chakraOrdi > 100) {
-         chakraOrdi = 100;
-         chakraOrdiP.innerHTML= `CHAKRA : 100%`
-         salle.innerHTML += `<p class="chakraOrdi">chakra chargé</p>`
-         tour = "user"
-         finCombat();
-         activerButton();
-         } 
-       } else {
-         salle.innerHTML += `<p class="chakraOrdi">chakra chargé<p>`
-           tour="user"
-           activerButton();
-       }
-    }
-  }
-  function ordiAttaque() {
-    let choixAttaque = ["base","chakra","rechChakra","ultime"];
-    audio.play()
-    let action = choixAttaque[Math.floor(Math.random()* choixAttaque.length)]
-    switch(action){
-      case  "base" : 
-        ordiAtqBase();
-salle.scrollTop = salle.scrollHeight
-        break;
-      case "chakra": 
-          ordiAtqChakra();
-salle.scrollTop = salle.scrollHeight
- 
-          break;
-      case "ultime": 
-        ordiAtqUltime();
-salle.scrollTop = salle.scrollHeight
-        break;
-        default : 
-          ordiRecharge();
-salle.scrollTop = salle.scrollHeight
- 
-    }
-  }
-  
-  function baseAttaque() {
-    if(tour !== "user") {
-      salle.innerHTML+=`<p> tour de la machine</p>`
-      return;
-    } 
-       
-       
-          let attaqueRandom = Math.floor(Math.random()* attaque.length);
-          
-          let attaques = attaque[attaqueRandom];
-          let degat = [6,7,8,9,10,11,12,13,14,15];
-          let degatRandom = Math.floor(Math.random() * degat.length)
-          let degats = degat[degatRandom]
-        salle.innerHTML += `<p class="userAttaque">${perso} utilise : <br> ${attaques} inflige ${degats}% de dégâts a ${ordiNom}</p>`
-        vieOrdi -= degats;
-          if (vieOrdi <= 0) {
-        salle.innerHTML += `<p class="userAttaque"><b>${perso} remporte la partie !</b></p>`;
-        finCombat();
-        desactiverButton();
-         return;
-       }
-        lifeOrdi.innerHTML=`VIE : ${vieOrdi}HP`
-         tour =  "ordi"
-          desactiverButton();
-         setTimeout(ordiAttaque,3000);
-  }
-  function chakraAttaque() {
-    if(tour !== "user") {
-      salle.innerHTML+=`<p> tour de la machine</p>`
-      return;
-    } 
-    
-        if(chakra > 25) {
-       let indexRandom = Math.floor(Math.random()* attaqueChakra.length);
-        attaques = attaqueChakra[indexRandom];
-        let degat = [22,18,20,24,21,17,19];
-        
-        chakra -=25;
-        
-        let degatRandom = Math.floor(Math.random()* degat.length)
-        
-        let degats = degat[degatRandom]
-        chakraV.innerHTML= `CHAKRA : ${chakra}%`;
-        
-        salle.innerHTML += `<p class="userAttaque">${perso} utilise : <br> ${attaques} inflige ${degats}% de dégâts a ${ordiNom}</p>`
-        vieOrdi -=degats
-         if (vieOrdi <= 0) {
-        salle.innerHTML += `<p class="userAttaque"><b>${perso}remporte la partie !</b></p>`;
-        finCombat();
-        desactiverButton();
-         return;
-       }
-        lifeOrdi.innerHTML=`VIE : ${vieOrdi}HP`
-         tour = "ordi"
-          desactiverButton();
-          setTimeout(ordiAttaque,3000)
-        } else {
-          salle.innerHTML += `<p class="no-chakra" > chakra insufissant </p>`
-          tour = "ordi"
-          desactiverButton();
-          setTimeout(ordiAttaque, 3000)
-        }
-    }
-  function  chakraRecharge() {
-    if(tour !== "user") {
-      salle.innerHTML+=`<p> tour de la machine</p>`
-      return;
-    } 
-    
-      if(chakra < 100) {
-      chakra += 20;
-      chakraV.innerHTML=`CHAKRA : ${chakra} %`
-      salle.innerHTML +=`<p class="yes-chakra">${perso} a plus 20% de chakra</p>`
-      tour = "ordi"
-      setTimeout(ordiAttaque,3000)
-      desactiverButton();
-      if(chakra > 100) {
-        chakraV.innerHTML=`CHAKRA : 100%`
-        tour = "ordi"
-        desactiverButton();
-        setTimeout(ordiAttaque, 2000)
-      }
-      } else{
-        
-        salle.innerHTML+=`<p class="yes-chakra"> chakra chargé !</p>`
-        tour="ordi"
-        desactiverButton();
-        setTimeout(ordiAttaque, 2000)
-      }
-    
-  }
-  function ultime() {
-    if(tour !== "user") {
-      salle.innerHTML+=`<p> tour de la machine</p>`
-      return;
-    }
-    
-    if(chakra > 70) {
-      chakra -=70
-      chakraV.innerHTML =`CHAKRA : ${chakra}%`
-    let indexRandom= Math.floor(Math.random()* attaqueUltime.length);
-    let degat = [30,32,43,41,38,35,39]
-    let degatRandom = Math.floor(Math.random()* degat.length)
-    let degats = degat[degatRandom]
-    
-    let attaques = attaqueUltime[indexRandom]
-     vieOrdi -= degats
-      if (vieOrdi <= 0) {
-        salle.innerHTML += `<p class="userAttaque"><b>${perso} utilise ${attaques} infliges ${degats}% de dégâts a ${ordiNom} et remporte la partie !</b></p>`;
-        finCombat()
-        desactiverButton();
-         return;
-       }
-        salle.innerHTML += `<p class="userAttaque">${perso} utilise : <br> ${attaques} inflige ${degats}% de dégâts a  ${ordiNom}</p>`
-        lifeOrdi.innerHTML= `VIE : ${vieOrdi}HP`
-        tour = "ordi"
-        desactiverButton();
-        setTimeout(ordiAttaque,3000)
-    
-    } else {
-          salle.innerHTML+=`<p class="no-chakra" > chakra insufissant </p>`
-          tour = "ordi"
-          desactiverButton();
-          setTimeout(ordiAttaque,3000)
-    }
-  }
-    function finCombat() {
-       audio.currentTime= 20;
-      if(vieOrdi <= 0) {
-        fin.textContent= `${perso} remporte la victoire !`
-  dialog.showModal(); 
-      } else if(vieUser <= 0) {
-        fin.textContent=`${ordiNom} remporte la \n victoire vous avez perdu !`;
-        dialog.showModal();
-      }
+lifeUser.innerHTML = `VIE : ${vieUser}HP`
+tour = "user"
+activerButton();
 }
-    document.addEventListener("click",(e) => {
-      if(e.target.classList.contains("ordi") || e.target.classList.contains("userAttaque")) {
-        navigator.clipboard.writeText(e.target.innerText)
-      }
-    })
-    
+}
+function ordiAtqUltime() {
+if (tour === "ordi") {
+if (chakraOrdi > 70) {
+let attaquesUltime = ordiUltime[Math.floor(Math.random()* ordiUltime.length)];
+let degat = [30, 32, 43, 41, 38, 35, 39];
+let degats = degat[Math.floor(Math.random()* degat.length)];
+chakraOrdi -= 70
+vieUser -= degats;
+if (vieUser <= 0) {
+salle.innerHTML += `<p class="ordi" ><b>${ordiNom} a gagné !</b></p>`;
+finCombat();
+desactiverButton();
+return;
+}
+
+salle.innerHTML += `<p class="ordi" >${ordiNom} utilise ${attaquesUltime} inflige ${degats}% a ${perso}</p>`
+chakraOrdiP.innerHTML = `CHAKRA : ${chakraOrdi}%`
+
+lifeUser.innerHTML = `VIE : ${vieUser}HP`
+tour = "user"
+activerButton();
+} else {
+salle.innerHTML += `<p id="no-chakra-ordi">chakra insufissant</p>`
+tour = "user"
+activerButton();
+}
+}
+}
+function ordiAtqChakra() {
+if (tour === "ordi") {
+if (chakraOrdi > 25) {
+let attaquesChakra = ordiChakra[Math.floor(Math.random()* ordiChakra.length)]
+let degat = [22, 18, 20, 24, 21, 17, 19];
+let degats = degat[Math.floor(Math.random()* degat.length)]
+salle.innerHTML += `<p class="ordi">${ordiNom} utilise ${attaquesChakra} inflige ${degats}% a ${perso}</p>`
+vieUser -= degats
+if (vieUser <= 0) {
+salle.innerHTML += `<p class="ordi"><b>${ordiNom} a gagné !</b></p>`;
+finCombat();
+desactiverButton();
+return;
+}
+chakraOrdi -= 25;
+chakraOrdiP.innerHTML = `CHAKRA : ${chakraOrdi}%`
+lifeUser.innerHTML = `VIE : ${vieUser}HP`
+tour = "user"
+activerButton();
+} else {
+salle.innerHTML += `<p id="no-chakra-ordi">chakra insufissant</p>`
+tour = "user"
+activerButton();
+}
+}
+}
+function ordiRecharge() {
+if (tour === "ordi") {
+if (chakraOrdi < 100) {
+chakraOrdi += 20;
+chakraOrdiP.innerHTML = `CHAKRA : ${chakraOrdi}%`
+salle.innerHTML += `<p class="ordi-yes-chakra">${ordiNom} a plus 20% de chakra</p>`
+chakraOrdiP.innerHTML = `CHAKRA : ${chakraOrdi}%`
+tour = "user"
+activerButton()
+if (chakraOrdi > 100) {
+chakraOrdi = 100;
+chakraOrdiP.innerHTML = `CHAKRA : 100%`
+salle.innerHTML += `<p class="chakraOrdi">chakra chargé</p>`
+tour = "user"
+finCombat();
+activerButton();
+}
+} else {
+salle.innerHTML += `<p class="chakraOrdi">chakra chargé<p>`
+tour = "user"
+activerButton();
+}
+}
+}
+function ordiAttaque() {
+let choixAttaque = ["base", "chakra", "rechChakra", "ultime"];
+audio.play()
+
+let action = choixAttaque[Math.floor(Math.random()* choixAttaque.length)]
+switch (action){
+case  "base":
+ordiAtqBase();
+salle.scrollTop = salle.scrollHeight;
+break;
+case "chakra":
+ordiAtqChakra();
+salle.scrollTop = salle.scrollHeight;
+break;
+case "ultime":
+ordiAtqUltime();
+salle.scrollTop = salle.scrollHeight;
+break;
+default:
+ordiRecharge();
+salle.scrollTop = salle.scrollHeight;
+}
+}
+
+function baseAttaque() {
+if (tour !== "user") {
+salle.innerHTML += `<p> tour de la machine</p>`
+return;
+}
+
+
+let attaqueRandom = Math.floor(Math.random()* attaque.length);
+
+let attaques = attaque[attaqueRandom];
+let degat = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+let degatRandom = Math.floor(Math.random() * degat.length)
+let degats = degat[degatRandom]
+salle.innerHTML += `<p class="userAttaque">${perso} utilise : <br> ${attaques} inflige ${degats}% de dégâts a ${ordiNom}</p>`
+salle.scrollTop = salle.scrollHeight;
+vieOrdi -= degats;
+if (vieOrdi <= 0) {
+salle.innerHTML += `<p class="userAttaque"><b>${perso} remporte la partie !</b></p>`;
+finCombat();
+desactiverButton();
+return;
+}
+lifeOrdi.innerHTML = `VIE : ${vieOrdi}HP`
+tour = "ordi"
+desactiverButton();
+setTimeout(ordiAttaque, 3000);
+}
+function chakraAttaque() {
+if (tour !== "user") {
+salle.innerHTML += `<p> tour de la machine</p>`
+return;
+}
+
+if (chakra > 25) {
+let indexRandom = Math.floor(Math.random()* attaqueChakra.length);
+attaques = attaqueChakra[indexRandom];
+let degat = [22, 18, 20, 24, 21, 17, 19];
+
+chakra -= 25;
+
+let degatRandom = Math.floor(Math.random()* degat.length)
+
+let degats = degat[degatRandom]
+chakraV.innerHTML = `CHAKRA : ${chakra}%`;
+
+salle.innerHTML += `<p class="userAttaque">${perso} utilise : <br> ${attaques} inflige ${degats}% de dégâts a ${ordiNom}</p>`
+salle.scrollTop = salle.scrollHeight;
+vieOrdi -= degats
+if (vieOrdi <= 0) {
+salle.innerHTML += `<p class="userAttaque"><b>${perso}remporte la partie !</b></p>`;
+finCombat();
+desactiverButton();
+return;
+}
+lifeOrdi.innerHTML = `VIE : ${vieOrdi}HP`
+tour = "ordi"
+desactiverButton();
+setTimeout(ordiAttaque, 3000)
+} else {
+salle.innerHTML += `<p class="no-chakra" > chakra insufissant </p>`
+salle.scrollTop = salle.crollHeight;
+tour = "ordi"
+desactiverButton();
+setTimeout(ordiAttaque, 3000)
+}
+}
+
+function ultime() {
+if (tour !== "user") {
+salle.innerHTML += `<p> tour de la machine</p>`
+return;
+}
+
+if (chakra > 70) {
+chakra -= 70
+chakraV.innerHTML = `CHAKRA : ${chakra}%`
+let indexRandom = Math.floor(Math.random()* attaqueUltime.length);
+let degat = [30, 32, 43, 41, 38, 35, 39]
+let degatRandom = Math.floor(Math.random()* degat.length)
+let degats = degat[degatRandom]
+
+let attaques = attaqueUltime[indexRandom]
+vieOrdi -= degats
+if (vieOrdi <= 0) {
+salle.innerHTML += `<p class="userAttaque"><b>${perso} utilise ${attaques} infliges ${degats}% de dégâts a ${ordiNom} et remporte la partie !</b></p>`;
+finCombat()
+desactiverButton();
+return;
+}
+salle.innerHTML += `<p class="userAttaque">${perso} utilise : <br> ${attaques} inflige ${degats}% de dégâts a  ${ordiNom}</p>`
+lifeOrdi.innerHTML = `VIE : ${vieOrdi}HP`
+salle.scrollTop = salle.scrollHeight;
+tour = "ordi"
+desactiverButton();
+setTimeout(ordiAttaque, 3000)
+
+} else {
+salle.innerHTML += `<p class="no-chakra" > chakra insufissant </p>`
+salle.scrollTop = salle.scrollHeight;
+tour = "ordi"
+desactiverButton();
+setTimeout(ordiAttaque, 3000)
+}
+}
+function finCombat() {
+audio.currentTime = 20;
+if (vieOrdi <= 0) {
+fin.textContent = `${perso} remporte la victoire !`
+dialog.showModal();
+} else if (vieUser <= 0) {
+fin.textContent = `${ordiNom} remporte la \n victoire vous avez perdu !`;
+dialog.showModal();
+}
+}
+document.addEventListener("click", (e) => {
+if (e.target.classList.contains("ordi") || e.target.classList.contains("userAttaque")) {
+navigator.clipboard.writeText(e.target.innerText)
+}
+})
+
 function passer() {
-  window.location.href = "personnage.html";
+window.location.href = "personnage.html";
 }
-      function recommencer() {
-        window.location.href=`salle.html`
-         }
-  
-    </script>
-    </body>
-  </html>
-  
+function startChakra() {
+if (tour !== "user") {
+return;
+}
+progressChakra = 0
+if(chakra < 100) {
+intervalChakra = setInterval( () => {
+if (chakra < 100 && progressChakra < 25) {
+chakra++
+progressChakra++
+chakraV.innerHTML = `CHAKRA : ${chakra} %`
+}
+else {
+stopRecharge()
+}
+}, 100)
+} else if(chakra >= 100) {
+  salle.innerHTML+=`<p class="yes-chakra"> chakra chargé</p>`
+  tour = "ordi"
+  desactiverButton()
+  setTimeout(ordiAttaque,2000)
+}
+}
+function stopRecharge() {
+clearInterval(intervalChakra)
+if (progressChakra > 0) {
+salle.innerHTML += `<p class="yes-chakra">${perso} a récupéré ${progressChakra}% de chakra </p>`
+
+salle.scrollTop = salle.scrollHeight;
+tour = "ordi"
+desactiverButton()
+setTimeout(ordiAttaque, 2000)
+return;
+}
+}
+chakraRecharge.addEventListener("mouseup", (e) => {
+e.preventDefault()
+startChakra()
+})
+chakraRecharge.addEventListener("mousedown", stopRecharge)
+chakraRecharge.addEventListener("touchstart", (e) => {
+e.preventDefault()
+startChakra()
+})
+chakraRecharge.addEventListener("touchend", stopRecharge)
+
+document.addEventListener("click", () => {
+salle.scrollTop = salle.scrollHeight
+})
+
+</script>
+</body>
+</html>
