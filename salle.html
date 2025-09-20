@@ -311,10 +311,13 @@ Hashirama remporte la victoire
 </p>
 </b>
 <button onclick="passer()">Changer de perso</button>
-<br> <button onclick="retour( window.location.href='salle.html')">Recommencer</button>
+<br> <button onclick="retour()">Recommencer</button>
 
 </dialog>
 <script>
+function retour() {
+windows.location.href= "salle.html"
+}
 let dialog = document.getElementById("dialog");
 let fin = document.getElementById('fin')
 let salle = document.getElementById("salle")
