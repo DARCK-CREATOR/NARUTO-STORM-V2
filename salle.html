@@ -5,7 +5,6 @@
   <meta name="viewport"
   content="width=device-width, initial-scale=1.0">
   <title>Salle de combat</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/DARCK-CREATOR/NARUTO-STORM-V2/main/IMG-20250827-WA0012(1).jpg">
   <style>
     .body{
         background-image: url('https://raw.githubusercontent.com/DARCK-CREATOR/NARUTO-STORM-V2/main/IMG-20250827-WA0012(1).jpg');
@@ -164,33 +163,63 @@
     text-shadow: 0 2px 6px #000000;
     }
     .dialog {
-    background: transparent;
+    background: #131e1a;
+    
     border-radius: 20px;
-    border: 1px dashed white;
+    border: none;
     width: 230px;
     height: 200px;
     text-align: center;
     pointer: cursor
+    box-shadow: 0 0 0 10px rgba(0,0,0,0.5),0 0 0 20px #fb0b0bf8;
+    animation: animate 1.5s ease-in-out infinite;
+    }
+    .inversion {
+      filter: invert(100%);
+      backdrop-filter: invert(100%);
+    }
+ @keyframes animate {
+      0% {
+         box-shadow: 0 0 0 0 rgba(906, 56, 10, 0.8);
+         backdrop-filter: invert(0%);
+      }
+      75% {
+        backdrop-filter: sepia(100%);
+         box-shadow: 0 0 0 50px rgba(136, 136, 255, 0);
+      }
+      85% {
+        backdrop-filter: brightness(100%);
+         box-shadow: 0 0 0 0 rgba(136, 136, 255, 0);
+      }
+      100% {
+        backdrop-filter: invert(100%);
+         box-shadow: 0 0 0 100px rgba(136, 136, 255, 0);
+      }
     }
     .dialog-h1 {
     color: yellow;
-    font-size: 1.5em;
+    text-transform: uppercase;
+    text-shadow: 10px 10px 30px white, 0 10px 30px gold;
     }
     .dialog-p {
     color: white;
     }
     .dialog button {
     padding: 10px;
-    border: none;
-    background-color: #779a66;
+    border: 1px solid white;
+    background-color: transparent;
     color: white;
     border-radius: 18px 18px;
     margin-bottom: 1em;
     pointer-events: cursor;
     width: 100%;
+    transition: all 0.7s ease;
+    }
+    .dialog button:hover {
+      border: 1.5px solid white;
     }
     .dialog::backdrop {
-    background: rgba(0,0,0,0.7);
+    backdrop-filter: invert(100%);
     }
     .musique {
     background-color: transparent;
@@ -254,7 +283,7 @@
     }
   </style>
 </head>
-<body class="body">
+<body class="body" id="body">
   <audio src=https://raw.githubusercontent.com/DARCK-CREATOR/NARUTO-STORM-V2/main/AUD-20250910-WA0002.mp3 id="audio" style="display: none;"></audio>
   <h1 class="annonce">SALLE DE COMBAT</h1>
   <center>
@@ -305,18 +334,14 @@
 </div>
 </center>
 <dialog id="dialog" class="dialog">
-<h1 class="dialog-h1">Fin du combat</h1>
-<b><p class="dialog-p" id="fin">
-Hashirama remporte la victoire
-</p>
-</b>
+<h1 class="dialog-h1" id="fin">Fin du combat</h1>
 <button onclick="passer()">Changer de perso</button>
-<br> <button onclick="retour()">Recommencer</button>
-
+<br> <button onclick="recommencer()">Recommencer</button>
+<br><br>
 </dialog>
 <script>
-function retour() {
-window.location.href= "salle.html"
+function recommencer() {
+  window.location.href="salle.html"
 }
 let dialog = document.getElementById("dialog");
 let fin = document.getElementById('fin')
@@ -354,6 +379,7 @@ chakraV.innerHTML = `CHAKRA : ${chakra}%`
 chakraOrdiP.innerHTML = `CHAKRA : ${chakraOrdi}%`
 let tour = "user";
 let audio = document.getElementById("audio")
+let body = document.getElementById("body")
 let progressChakra = 0;
 let intervalChakra;
 function jouer() {
@@ -383,6 +409,7 @@ salle.innerHTML += `<p class="ordi">${ordiNom} utilise ${ordiB} inflige ${degats
 vieUser -= degats
 if (vieUser <= 0) {
 salle.innerHTML += ` <p class="ordi"><b>${ordiNom} a gagné !</b></p>`;
+finCombat()
 desactiverButton();
 return;
 }
@@ -449,9 +476,9 @@ activerButton();
 function ordiRecharge() {
 if (tour === "ordi") {
 if (chakraOrdi < 100) {
-chakraOrdi += 20;
+chakraOrdi += 25;
 chakraOrdiP.innerHTML = `CHAKRA : ${chakraOrdi}%`
-salle.innerHTML += `<p class="ordi-yes-chakra">${ordiNom} a plus 20% de chakra</p>`
+salle.innerHTML += `<p class="ordi-yes-chakra">${ordiNom} a plus 25% de chakra</p>`
 chakraOrdiP.innerHTML = `CHAKRA : ${chakraOrdi}%`
 tour = "user"
 activerButton()
@@ -462,6 +489,7 @@ salle.innerHTML += `<p class="chakraOrdi">chakra chargé</p>`
 tour = "user"
 finCombat();
 activerButton();
+return;
 }
 } else {
 salle.innerHTML += `<p class="chakraOrdi">chakra chargé<p>`
@@ -601,10 +629,14 @@ setTimeout(ordiAttaque, 3000)
 function finCombat() {
 audio.currentTime = 20;
 if (vieOrdi <= 0) {
-fin.textContent = `${perso} remporte la victoire !`
+fin.textContent = `VICTORY`
+lifeOrdi.innerHTML = `VIE : ${vieOrdi}HP`
+lifeUser.innerHTML = `VIE : ${vieUser}HP`
 dialog.showModal();
 } else if (vieUser <= 0) {
-fin.textContent = `${ordiNom} remporte la \n victoire vous avez perdu !`;
+fin.textContent = `GAME OVER `
+lifeUser.innerHTML = `VIE : ${vieUser}HP`
+lifeOrdi.innerHTML = `VIE : ${vieOrdi}HP`
 dialog.showModal();
 }
 }
@@ -646,6 +678,7 @@ if (progressChakra > 0) {
 salle.innerHTML += `<p class="yes-chakra">${perso} a récupéré ${progressChakra}% de chakra </p>`
 
 salle.scrollTop = salle.scrollHeight;
+body.classList.remove("inversion")
 tour = "ordi"
 desactiverButton()
 setTimeout(ordiAttaque, 2000)
@@ -653,15 +686,23 @@ return;
 }
 }
 chakraRecharge.addEventListener("mouseup", (e) => {
+  body.classList.add("inversion")
 e.preventDefault()
 startChakra()
 })
-chakraRecharge.addEventListener("mousedown", stopRecharge)
+chakraRecharge.addEventListener("mousedown", () => {
+  body.classList.remove("inversion")
+  stopRecharge()
+})
 chakraRecharge.addEventListener("touchstart", (e) => {
+  body.classList.add("inversion")
 e.preventDefault()
 startChakra()
 })
-chakraRecharge.addEventListener("touchend", stopRecharge)
+chakraRecharge.addEventListener("touchend",() => {
+  body.classList.remove("inversion")
+  stopRecharge()
+  })
 
 document.addEventListener("click", () => {
 salle.scrollTop = salle.scrollHeight
